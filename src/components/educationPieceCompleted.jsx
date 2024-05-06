@@ -1,4 +1,16 @@
-function EducationPieceCompleted({ name, title, startDate, endDate }) {
+function EducationPieceCompleted({
+  name,
+  title,
+  startDate,
+  endDate,
+  id,
+  handleRemoveItem,
+}) {
+  function handleRemove(event) {
+    event.preventDefault();
+
+    handleRemoveItem(id);
+  }
   return (
     <>
       <p>School Name - {name}</p>
@@ -6,6 +18,7 @@ function EducationPieceCompleted({ name, title, startDate, endDate }) {
       <p>Start of Studies - {startDate}</p>
       <p>End of Studies - {endDate}</p>
       <button>Edit</button>
+      <button onClick={handleRemove}>Remove</button>
     </>
   );
 }

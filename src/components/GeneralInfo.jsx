@@ -7,11 +7,13 @@ function GeneralInfo() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
-  function handleSubmit() {
+  function handleSubmit(event) {
+    event.preventDefault();
     setIsSubmitted(true);
   }
 
-  function handleEdit() {
+  function handleEdit(event) {
+    event.preventDefault();
     setIsSubmitted(false);
   }
 
