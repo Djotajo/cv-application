@@ -1,29 +1,30 @@
-import React from "react";
 import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 
-function EducationPiece({ educationArray, handleAdd, handleCancel }) {
-  const pieceId = uuidv4();
-  const [name, setSchoolName] = useState("");
-  const [titleEarned, setTitle] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+function EducationPieceEdit({
+  name,
+  title,
+  startDate,
+  endDate,
+  id,
+  handleEditItem,
+}) {
+  const [schoolName, setSchoolName] = useState(name);
+  const [titleEarned, setTitle] = useState(title);
+  const [start, setStartDate] = useState(startDate);
+  const [end, setEndDate] = useState(endDate);
 
-  function handleCancelSubmit(event) {
+  function handleEdit(event) {
     event.preventDefault();
-    handleCancel();
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    handleAdd({
-      id: pieceId,
-      schoolName: name,
+    const updatedItem = {
+      id: id,
+      schoolName: schoolName,
       title: titleEarned,
-      start: startDate,
-      end: endDate,
-    });
+      start: start,
+      end: end,
+      edit: false,
+    };
+    handleEditItem(id, updatedItem);
+    console.log(updatedItem);
   }
 
   return (
@@ -35,6 +36,7 @@ function EducationPiece({ educationArray, handleAdd, handleCancel }) {
             type="text"
             id="schoolName"
             name="schoolName"
+            value={schoolName}
             onChange={(e) => setSchoolName(e.target.value)}
           />
         </label>
@@ -44,6 +46,7 @@ function EducationPiece({ educationArray, handleAdd, handleCancel }) {
             type="text"
             id="studyTitle"
             name="studyTitle"
+            value={titleEarned}
             onChange={(e) => setTitle(e.target.value)}
           />
         </label>
@@ -53,6 +56,7 @@ function EducationPiece({ educationArray, handleAdd, handleCancel }) {
             type="date"
             id="studyDateStart"
             name="studyDateStart"
+            value={start}
             onChange={(e) => setStartDate(e.target.value)}
           />
         </label>
@@ -62,14 +66,14 @@ function EducationPiece({ educationArray, handleAdd, handleCancel }) {
             type="date"
             id="studyDateEnd"
             name="studyDateEnd"
+            value={end}
             onChange={(e) => setEndDate(e.target.value)}
           />
         </label>
-        <button onClick={handleSubmit}>Submit</button>
-        <button onClick={handleCancelSubmit}>Cancel</button>
+        <button onClick={handleEdit}>Submit</button>
       </form>
     </>
   );
 }
 
-export default EducationPiece;
+export default EducationPieceEdit;
