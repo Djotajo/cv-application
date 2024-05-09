@@ -1,25 +1,26 @@
 import { useState } from "react";
-import GeneralInfo from "./components/GeneralInfo";
-import EducationInfo from "./components/EducationInfo";
+import GeneralInfo from "./components/generalInfo";
+import EducationInfo from "./components/educationInfo";
 import WorkInfo from "./components/workInfo";
 
 import "./App.css";
+import "./normalize.css";
 
 function App() {
   return (
     <>
-      <div>
+      <section>
         {" "}
         <GeneralInfo />
-      </div>
-      <div>
+      </section>
+      <section>
         {" "}
         <EducationInfo />
-      </div>
-      <div>
+      </section>
+      <section>
         {" "}
         <WorkInfo />
-      </div>
+      </section>
     </>
   );
 }

@@ -68,7 +68,7 @@ function WorkInfo() {
   return (
     <>
       <h2>Work Experience</h2>
-      <button onClick={addItem}>Add new info</button>
+      <button onClick={addItem}>Add new</button>
       {addNew ? (
         <NewWorkExperience
           workArray={workArray}

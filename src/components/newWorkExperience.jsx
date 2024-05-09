@@ -31,54 +31,61 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
   return (
     <>
       <form action="#">
-        <label htmlFor="companyName">
-          Company Name{" "}
-          <input
-            type="text"
-            id="companyName"
-            name="companyName"
-            onChange={(e) => setCompanyName(e.target.value)}
-          />
-        </label>
-        <label htmlFor="jobPosition">
-          Title Earned{" "}
-          <input
-            type="text"
-            id="jobPosition"
-            name="jobPosition"
-            onChange={(e) => setJobPosition(e.target.value)}
-          />
-        </label>
-        <label htmlFor="responsibilities">
-          Main Responsibilities{" "}
-          <textarea
-            id="responsibilities"
-            name="responsibilities"
-            rows="4"
-            cols="50"
-            onChange={(e) => setResponsibilities(e.target.value)}
-          />
-        </label>
-        <label htmlFor="jobStartDate">
-          Start of Work{" "}
-          <input
-            type="date"
-            id="jobStartDate"
-            name="jobStartDate"
-            onChange={(e) => setJobStartDate(e.target.value)}
-          />
-        </label>
-        <label htmlFor="jobEndDate">
-          End of Work{" "}
-          <input
-            type="date"
-            id="jobEndDate"
-            name="jobEndDate"
-            onChange={(e) => setJobEndDate(e.target.value)}
-          />
-        </label>
-        <button onClick={handleSubmit}>Submit</button>
-        <button onClick={handleCancelSubmit}>Cancel</button>
+        <fieldset>
+          <div>
+            <label htmlFor="companyName">Company Name </label>
+            <input
+              type="text"
+              id="companyName"
+              name="companyName"
+              onChange={(e) => setCompanyName(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="jobPosition">Title Earned </label>
+            <input
+              type="text"
+              id="jobPosition"
+              name="jobPosition"
+              onChange={(e) => setJobPosition(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="responsibilities">Main Responsibilities </label>
+            <textarea
+              id="responsibilities"
+              name="responsibilities"
+              rows="4"
+              cols="50"
+              onChange={(e) => setResponsibilities(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="jobStartDate">Start of Work </label>
+            <input
+              type="date"
+              id="jobStartDate"
+              name="jobStartDate"
+              onChange={(e) => setJobStartDate(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="jobEndDate">End of Work </label>
+            <input
+              type="date"
+              id="jobEndDate"
+              name="jobEndDate"
+              onChange={(e) => setJobEndDate(e.target.value)}
+            />
+          </div>
+
+          <button onClick={handleSubmit}>Submit</button>
+          <button onClick={handleCancelSubmit}>Cancel</button>
+        </fieldset>
       </form>
     </>
   );

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import EducationPiece from "./educationPiece";
+import NewEducationPiece from "./newEducationPiece";
 import EducationPieceCompleted from "./educationPieceCompleted";
-import EducationPieceEdit from "./EducationPieceEdit";
+import EducationPieceEdit from "./educationPieceEdit";
 
 function EducationInfo() {
   const [educationArray, setEducationArray] = useState([]);
@@ -69,9 +69,9 @@ function EducationInfo() {
   return (
     <>
       <h2>Education</h2>
-      <button onClick={addItem}>Add new info</button>
+      <button onClick={addItem}>Add new</button>
       {addNew ? (
-        <EducationPiece
+        <NewEducationPiece
           educationArray={educationArray}
           handleAdd={editArray}
           handleCancel={addItem}

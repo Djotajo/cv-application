@@ -34,58 +34,65 @@ function WorkExperienceEdit({
   return (
     <>
       <form action="#">
-        <label htmlFor="companyName">
-          Company Name{" "}
-          <input
-            type="text"
-            id="companyName"
-            name="companyName"
-            value={companyName}
-            onChange={(e) => setCompanyName(e.target.value)}
-          />
-        </label>
-        <label htmlFor="jobPosition">
-          Position{" "}
-          <input
-            type="text"
-            id="jobPosition"
-            name="jobPosition"
-            value={jobPosition}
-            onChange={(e) => setJobPosition(e.target.value)}
-          />
-        </label>
-        <label htmlFor="responsibilities">
-          Main Responsibilities{" "}
-          <textarea
-            id="responsibilities"
-            name="responsibilities"
-            rows="4"
-            cols="50"
-            value={mainResponsibilities}
-            onChange={(e) => setMainResponsibilities(e.target.value)}
-          />
-        </label>
-        <label htmlFor="jobStartDate">
-          Start of Work{" "}
-          <input
-            type="date"
-            id="jobStartDate"
-            name="jobStartDate"
-            value={jobStartDate}
-            onChange={(e) => setJobStartDate(e.target.value)}
-          />
-        </label>
-        <label htmlFor="jobEndDate">
-          End of Work{" "}
-          <input
-            type="date"
-            id="jobEndDate"
-            name="jobEndDate"
-            value={jobEndDate}
-            onChange={(e) => setJobEndDate(e.target.value)}
-          />
-        </label>
-        <button onClick={handleEdit}>Submit</button>
+        <fieldset>
+          <div>
+            <label htmlFor="companyName">Company Name </label>
+            <input
+              type="text"
+              id="companyName"
+              name="companyName"
+              value={companyName}
+              onChange={(e) => setCompanyName(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="jobPosition">Position </label>
+            <input
+              type="text"
+              id="jobPosition"
+              name="jobPosition"
+              value={jobPosition}
+              onChange={(e) => setJobPosition(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="responsibilities">Main Responsibilities </label>
+            <textarea
+              id="responsibilities"
+              name="responsibilities"
+              rows="4"
+              cols="50"
+              value={mainResponsibilities}
+              onChange={(e) => setMainResponsibilities(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="jobStartDate">Start of Work </label>
+            <input
+              type="date"
+              id="jobStartDate"
+              name="jobStartDate"
+              value={jobStartDate}
+              onChange={(e) => setJobStartDate(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="jobEndDate">End of Work </label>
+            <input
+              type="date"
+              id="jobEndDate"
+              name="jobEndDate"
+              value={jobEndDate}
+              onChange={(e) => setJobEndDate(e.target.value)}
+            />
+          </div>
+
+          <button onClick={handleEdit}>Submit</button>
+        </fieldset>
       </form>
     </>
   );
