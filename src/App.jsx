@@ -1,7 +1,7 @@
 import { useState } from "react";
 import GeneralInfo from "./components/GeneralInfo";
 import EducationInfo from "./components/EducationInfo";
-import WorkExperience from "./components/WorkExperience";
+import WorkInfo from "./components/workInfo";
 
 import "./App.css";
 
@@ -18,7 +18,7 @@ function App() {
       </div>
       <div>
         {" "}
-        <WorkExperience />
+        <WorkInfo />
       </div>
     </>
   );
