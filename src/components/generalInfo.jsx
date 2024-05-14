@@ -5,16 +5,20 @@ function GeneralInfo({
   onFirstNameChange,
   lastName,
   onLastNameChange,
+  title,
+  onTitleChange,
+  city,
+  onCityChange,
+  country,
+  onCountryChange,
   email,
   onMailChange,
   phone,
   onPhoneChange,
+  page,
+  onPageChange,
 }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  // const [firstName, setFirstName] = useState(name);
-  // const [lastName, setLastName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [phone, setPhone] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -57,6 +61,39 @@ function GeneralInfo({
             </div>
 
             <div>
+              <label htmlFor="title">Title</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                value={title}
+                onChange={(e) => onTitleChange(e)}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="city">City</label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                value={city}
+                onChange={(e) => onCityChange(e)}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="country">Country</label>
+              <input
+                type="text"
+                id="country"
+                name="country"
+                value={country}
+                onChange={(e) => onCountryChange(e)}
+              />
+            </div>
+
+            <div>
               <label htmlFor="email">E-mail</label>
               <input
                 type="email"
@@ -75,6 +112,17 @@ function GeneralInfo({
                 name="phone"
                 value={phone}
                 onChange={(e) => onPhoneChange(e)}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="page">Web Page</label>
+              <input
+                type="text"
+                id="page"
+                name="page"
+                value={page}
+                onChange={(e) => onPageChange(e)}
               />
             </div>
             <button onClick={handleSubmit}>Submit</button>

@@ -10,23 +10,15 @@ import "./normalize.css";
 function App() {
   const [firstName, setFirstName] = useState("bra");
   const [lastName, setLastName] = useState("lio");
+  const [title, setTitle] = useState("Dr");
+  const [city, setCity] = useState("BL");
+  const [country, setCountry] = useState("Rohan");
   const [email, setEmail] = useState("mejl");
   const [phone, setPhone] = useState("387");
+  const [page, setPage] = useState("Profile");
 
-  function handleFirstNameChange(e) {
-    setFirstName(e.target.value);
-  }
-
-  function handleLastNameChange(e) {
-    setLastName(e.target.value);
-  }
-
-  function handleMailChange(e) {
-    setEmail(e.target.value);
-  }
-
-  function handlePhoneChange(e) {
-    setPhone(e.target.value);
+  function handleInputChange(event, setter) {
+    setter(event.target.value);
   }
 
   return (
@@ -37,13 +29,25 @@ function App() {
             {" "}
             <GeneralInfo
               name={firstName}
-              onFirstNameChange={(event) => handleFirstNameChange(event)}
+              onFirstNameChange={(event) =>
+                handleInputChange(event, setFirstName)
+              }
               lastName={lastName}
-              onLastNameChange={(event) => handleLastNameChange(event)}
+              onLastNameChange={(event) =>
+                handleInputChange(event, setLastName)
+              }
+              title={title}
+              onTitleChange={(event) => handleInputChange(event, setTitle)}
+              city={city}
+              onCityChange={(event) => handleInputChange(event, setCity)}
+              country={country}
+              onCountryChange={(event) => handleInputChange(event, setCountry)}
               email={email}
-              onMailChange={(event) => handleMailChange(event)}
+              onMailChange={(event) => handleInputChange(event, setEmail)}
               phone={phone}
-              onPhoneChange={(event) => handlePhoneChange(event)}
+              onPhoneChange={(event) => handleInputChange(event, setPhone)}
+              page={page}
+              onPageChange={(event) => handleInputChange(event, setPage)}
             />
           </section>
           <section>
@@ -61,8 +65,12 @@ function App() {
             <DisplayGeneralInfo
               firstName={firstName}
               lastName={lastName}
+              title={title}
+              city={city}
+              country={country}
               email={email}
               phone={phone}
+              page={page}
             />
           </section>
           <section>
