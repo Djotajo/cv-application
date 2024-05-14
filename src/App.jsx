@@ -4,8 +4,8 @@ import EducationInfo from "./components/educationInfo";
 import WorkInfo from "./components/workInfo";
 import DisplayGeneralInfo from "./components/displayGeneralInfo";
 
-import "./App.css";
 import "./normalize.css";
+import "./App.css";
 
 function App() {
   const [firstName, setFirstName] = useState("bra");

@@ -1,5 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
 #root {
-  width: 80%;
+  width: 90%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -29,12 +33,12 @@ button {
   width: 10%;
 }
 
-section {
+/* .container > section {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5px;
-}
+} */
 
 fieldset {
   display: flex;
@@ -67,6 +71,46 @@ fieldset button {
 .gridItemInput {
   padding: 5px;
   font-weight: 700;
+}
+
+.container {
+  border: 1px solid black;
+  width: 100%;
+}
+/* DISPLAY SECTION */
+/*  */
+.displayGeneralInfo {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: flex-start; /* Align items to the start of each column */
+  align-content: flex-start; /* Align content to the start of each column */
+}
+
+.personalInfo,
+.contactInfo {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-align: start;
+  padding: 1em;
+  flex: 1;
+  max-width: 50%;
+}
+
+.personalInfo {
+  justify-self: start;
+  width: 100%;
+  max-width: 3fr;
+}
+
+.personalInfo h1 {
+  font-size: calc(0.75em + 1vmin);
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
+  text-overflow: ellipsis; /* Display an ellipsis (...) to indicate overflow */
+  overflow-wrap: break-word;
 }
 
 /* section label {
