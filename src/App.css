@@ -6,6 +6,11 @@
   text-align: center;
 }
 
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
 div,
 form {
   display: flex;
@@ -44,7 +49,7 @@ fieldset label {
 }
 
 fieldset input {
-  padding: 1em;
+  padding: 0.5rem;
 }
 
 fieldset button {

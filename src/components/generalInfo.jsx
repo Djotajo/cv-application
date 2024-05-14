@@ -1,11 +1,20 @@
 import { useState } from "react";
 
-function GeneralInfo() {
+function GeneralInfo({
+  name,
+  onFirstNameChange,
+  lastName,
+  onLastNameChange,
+  email,
+  onMailChange,
+  phone,
+  onPhoneChange,
+}) {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  // const [firstName, setFirstName] = useState(name);
+  // const [lastName, setLastName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [phone, setPhone] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -31,8 +40,8 @@ function GeneralInfo() {
                 type="text"
                 id="firstName"
                 name="firstName"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
+                value={name}
+                onChange={(e) => onFirstNameChange(e)}
               />
             </div>
 
@@ -43,7 +52,7 @@ function GeneralInfo() {
                 id="lastName"
                 name="lastName"
                 value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
+                onChange={(e) => onLastNameChange(e)}
               />
             </div>
 
@@ -54,7 +63,7 @@ function GeneralInfo() {
                 id="email"
                 name="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => onMailChange(e)}
               />
             </div>
 
@@ -65,7 +74,7 @@ function GeneralInfo() {
                 id="phone"
                 name="phone"
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={(e) => onPhoneChange(e)}
               />
             </div>
             <button onClick={handleSubmit}>Submit</button>
@@ -80,7 +89,7 @@ function GeneralInfo() {
 
         <div>
           <span className="gridItemText">First name</span>
-          <span className="gridItemInput">{firstName}</span>
+          {/* <span className="gridItemInput">{firstName}</span> */}
         </div>
 
         <div>
