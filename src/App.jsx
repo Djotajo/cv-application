@@ -3,6 +3,7 @@ import GeneralInfo from "./components/generalInfo";
 import EducationInfo from "./components/educationInfo";
 import WorkInfo from "./components/workInfo";
 import DisplayGeneralInfo from "./components/displayGeneralInfo";
+import DisplayEducationInfo from "./components/displayEducationInfo";
 
 import "./normalize.css";
 import "./App.css";
@@ -19,8 +20,19 @@ function App() {
     "https://ba.linkedin.com/in/djordje-kenjalo-12b874b5"
   );
 
+  const [educationArray, setEducationArray] = useState([]);
+
   function handleInputChange(event, setter) {
     setter(event.target.value);
+  }
+
+  function handleArrayChange(newObject) {
+    setEducationArray((prevEducationArray) => [
+      ...prevEducationArray,
+      newObject,
+    ]);
+    // addItem();
+    // console.log(educationArray);
   }
 
   return (
@@ -54,7 +66,10 @@ function App() {
           </section>
           <section>
             {" "}
-            <EducationInfo />
+            <EducationInfo
+              educationArray={educationArray}
+              handleArrayChange={handleArrayChange}
+            />
           </section>
           <section>
             {" "}
@@ -77,7 +92,7 @@ function App() {
           </section>
           <section>
             {" "}
-            <EducationInfo />
+            <DisplayEducationInfo array={educationArray} />
           </section>
           <section>
             {" "}

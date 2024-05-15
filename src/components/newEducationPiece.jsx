@@ -53,7 +53,7 @@ function NewEducationPiece({ educationArray, handleAdd, handleCancel }) {
           <div>
             <label htmlFor="studyDateStart">Start of Studies </label>
             <input
-              type="date"
+              type="month"
               id="studyDateStart"
               name="studyDateStart"
               onChange={(e) => setStartDate(e.target.value)}
@@ -63,7 +63,7 @@ function NewEducationPiece({ educationArray, handleAdd, handleCancel }) {
           <div>
             <label htmlFor="studyDateEnd">End of Studies </label>
             <input
-              type="date"
+              type="month"
               id="studyDateEnd"
               name="studyDateEnd"
               onChange={(e) => setEndDate(e.target.value)}

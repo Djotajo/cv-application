@@ -6,7 +6,7 @@ function EducationPieceEdit({
   startDate,
   endDate,
   id,
-  handleEditItem,
+  // handleEditItem,
 }) {
   const [schoolName, setSchoolName] = useState(name);
   const [titleEarned, setTitle] = useState(title);
@@ -23,7 +23,7 @@ function EducationPieceEdit({
       end: end,
       edit: false,
     };
-    handleEditItem(id, updatedItem);
+    // handleEditItem(id, updatedItem);
     console.log(updatedItem);
   }
 
@@ -75,7 +75,7 @@ function EducationPieceEdit({
             />
           </div>
 
-          <button onClick={handleEdit}>Submit</button>
+          {/* <button onClick={handleEdit}>Submit</button> */}
         </fieldset>
       </form>
     </>
