@@ -8,14 +8,16 @@ import "./normalize.css";
 import "./App.css";
 
 function App() {
-  const [firstName, setFirstName] = useState("bra");
-  const [lastName, setLastName] = useState("lio");
-  const [title, setTitle] = useState("Dr");
-  const [city, setCity] = useState("BL");
-  const [country, setCountry] = useState("Rohan");
-  const [email, setEmail] = useState("mejl");
-  const [phone, setPhone] = useState("387");
-  const [page, setPage] = useState("Profile");
+  const [firstName, setFirstName] = useState("Djordje");
+  const [lastName, setLastName] = useState("Kenjalo");
+  const [title, setTitle] = useState("Senior Associate");
+  const [city, setCity] = useState("Banja Luka");
+  const [country, setCountry] = useState("Bosnia and Herzegovina");
+  const [email, setEmail] = useState("djordjekenjalo@gmail.com");
+  const [phone, setPhone] = useState("+38765456850");
+  const [page, setPage] = useState(
+    "https://ba.linkedin.com/in/djordje-kenjalo-12b874b5"
+  );
 
   function handleInputChange(event, setter) {
     setter(event.target.value);

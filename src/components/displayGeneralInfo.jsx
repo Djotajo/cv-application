@@ -1,5 +1,10 @@
 import { useState } from "react";
 import GeneralInfo from "./generalInfo";
+import Icon from "@mdi/react";
+import { mdiEmailOutline } from "@mdi/js";
+import { mdiPhoneOutline } from "@mdi/js";
+import { mdiOpenInNew } from "@mdi/js";
+import { mdiMapMarker } from "@mdi/js";
 
 import "./displayGeneralInfo.css";
 
@@ -24,16 +29,19 @@ function DisplayGeneralInfo({
             </h1>
             <h2>{title}</h2>
             <h3>
-              {city}
-              {country}
+              <Icon path={mdiMapMarker} size={1} /> {city}, {country}
             </h3>
           </div>
           <div className="contactInfo">
             {" "}
-            <h4>{email}</h4>
-            <h4>{phone}</h4>
             <h4>
-              <a href={page}>Web Page</a>
+              <Icon path={mdiEmailOutline} size={1} /> {email}
+            </h4>
+            <h4>
+              <Icon path={mdiPhoneOutline} size={1} /> {phone}
+            </h4>
+            <h4>
+              <Icon path={mdiOpenInNew} size={1} /> <a href={page}>Web Page</a>
             </h4>
           </div>
         </div>

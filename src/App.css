@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 #root {
   width: 90%;
   max-width: 1280px;
@@ -123,12 +127,17 @@ fieldset button {
   max-width: 65%;
 }
 
-.personalInfo h1 {
-  font-size: calc(0.75em + 1vmin);
-  /* white-space: nowrap; */
-  /* overflow: hidden; */
+.personalInfo > *,
+.contactInfo > * {
   text-overflow: ellipsis; /* Display an ellipsis (...) to indicate overflow */
   overflow-wrap: break-word;
+  vertical-align: baseline;
+  display: flex;
+  align-items: center;
+}
+
+.personalInfo h1 {
+  font-size: calc(2em + 1vmin);
 }
 
 .contactInfo {
