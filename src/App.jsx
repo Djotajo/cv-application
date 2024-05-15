@@ -24,7 +24,7 @@ function App() {
   return (
     <>
       <main>
-        <div className="container">
+        <div className="container left">
           <section>
             {" "}
             <GeneralInfo
@@ -59,7 +59,7 @@ function App() {
             <WorkInfo />
           </section>
         </div>
-        <div className="container">
+        <div className="container right">
           <section>
             {" "}
             <DisplayGeneralInfo

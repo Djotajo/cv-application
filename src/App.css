@@ -76,15 +76,34 @@ fieldset button {
 .container {
   border: 1px solid black;
   width: 100%;
+  max-width: 50%;
+}
+
+.left {
+  width: 40%;
+  max-width: 40%;
+}
+
+.right {
+  width: 60%;
+  max-width: 60%;
 }
 /* DISPLAY SECTION */
 /*  */
-.displayGeneralInfo {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-template-rows: 1fr;
-  align-items: flex-start; /* Align items to the start of each column */
-  align-content: flex-start; /* Align content to the start of each column */
+/* .displayGeneralInfo {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  align-items: flex-start;
+  align-content: flex-start;
+} */
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center;
+  border: 1px solid red;
 }
 
 .personalInfo,
@@ -95,14 +114,13 @@ fieldset button {
   height: 100%;
   text-align: start;
   padding: 1em;
-  flex: 1;
-  max-width: 50%;
+  /* flex: 1; */
 }
 
 .personalInfo {
   justify-self: start;
-  width: 100%;
-  max-width: 3fr;
+  width: 65%;
+  max-width: 65%;
 }
 
 .personalInfo h1 {
@@ -111,6 +129,11 @@ fieldset button {
   /* overflow: hidden; */
   text-overflow: ellipsis; /* Display an ellipsis (...) to indicate overflow */
   overflow-wrap: break-word;
+}
+
+.contactInfo {
+  width: 35%;
+  max-width: 35%;
 }
 
 /* section label {

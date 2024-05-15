@@ -1,8 +1,8 @@
-.displayGeneralInfo {
+/* .displayGeneralInfo {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  align-items: flex-start; /* Align items to the start of each column */
-  align-content: flex-start; /* Align content to the start of each column */
+  align-items: flex-start;
+  align-content: flex-start;
 }
 
 .personalInfo,
@@ -14,4 +14,4 @@
 .personalInfo {
   justify-self: start;
   width: 100%;
-}
+} */
