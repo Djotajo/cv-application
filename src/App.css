@@ -161,3 +161,22 @@ section label {
   padding: 5px;
 }
  */
+
+.eduItem {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  padding: 1em;
+}
+
+.eduItemButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.eduItemButtons button {
+  padding: 5px;
+  width: 100%;
+}

@@ -3,7 +3,13 @@ import NewEducationPiece from "./newEducationPiece";
 import EducationPieceCompleted from "./educationPieceCompleted";
 import EducationPieceEdit from "./educationPieceEdit";
 
-function EducationInfo({ educationArray, handleArrayChange }) {
+function EducationInfo({
+  educationArray,
+  handleArrayChange,
+  handleRemoveEducationItem,
+  handleEditEducationItem,
+  handleSubmitEditEducationItem,
+}) {
   // const [educationArray, setEducationArray] = useState([]);
   const [addNew, setAddNew] = useState(false);
 
@@ -28,7 +34,7 @@ function EducationInfo({ educationArray, handleArrayChange }) {
           startDate={piece.start}
           endDate={piece.end}
           id={piece.id}
-          // handleEditItem={submitEditItem}
+          handleEditItem={handleSubmitEditEducationItem}
           key={piece.id}
         />
       ) : (
@@ -39,16 +45,12 @@ function EducationInfo({ educationArray, handleArrayChange }) {
           endDate={piece.end}
           key={piece.id}
           id={piece.id}
-          // handleEditItem={editItem}
-          // handleRemoveItem={removeItem}
+          handleEditItem={handleEditEducationItem}
+          handleRemoveItem={handleRemoveEducationItem}
         />
       )
     );
   }
-
-  // function removeItem(itemId) {
-  //   setEducationArray(educationArray.filter((item) => item.id !== itemId));
-  // }
 
   // function editItem(itemId) {
   //   setEducationArray((prevEducationArray) =>

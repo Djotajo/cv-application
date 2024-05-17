@@ -6,7 +6,7 @@ function EducationPieceEdit({
   startDate,
   endDate,
   id,
-  // handleEditItem,
+  handleEditItem,
 }) {
   const [schoolName, setSchoolName] = useState(name);
   const [titleEarned, setTitle] = useState(title);
@@ -23,8 +23,7 @@ function EducationPieceEdit({
       end: end,
       edit: false,
     };
-    // handleEditItem(id, updatedItem);
-    console.log(updatedItem);
+    handleEditItem(id, updatedItem);
   }
 
   return (
@@ -56,7 +55,7 @@ function EducationPieceEdit({
           <div>
             <label htmlFor="studyDateStart">Start of Studies </label>
             <input
-              type="date"
+              type="month"
               id="studyDateStart"
               name="studyDateStart"
               value={start}
@@ -67,7 +66,7 @@ function EducationPieceEdit({
           <div>
             <label htmlFor="studyDateEnd">End of Studies </label>
             <input
-              type="date"
+              type="month"
               id="studyDateEnd"
               name="studyDateEnd"
               value={end}
@@ -75,7 +74,7 @@ function EducationPieceEdit({
             />
           </div>
 
-          {/* <button onClick={handleEdit}>Submit</button> */}
+          <button onClick={handleEdit}>Submit</button>
         </fieldset>
       </form>
     </>

@@ -35,6 +35,26 @@ function App() {
     // console.log(educationArray);
   }
 
+  function handleRemoveEducationItem(itemId) {
+    setEducationArray(educationArray.filter((item) => item.id !== itemId));
+  }
+
+  function handleEditEducationItem(itemId) {
+    setEducationArray((prevEducationArray) =>
+      prevEducationArray.map((item) =>
+        item.id === itemId ? { ...item, edit: true } : item
+      )
+    );
+  }
+
+  function handleSubmitEditEducationItem(itemId, updatedItem) {
+    setEducationArray((prevEducationArray) =>
+      prevEducationArray.map((item) =>
+        item.id === itemId ? { ...item, ...updatedItem } : item
+      )
+    );
+  }
+
   return (
     <>
       <main>
@@ -69,6 +89,9 @@ function App() {
             <EducationInfo
               educationArray={educationArray}
               handleArrayChange={handleArrayChange}
+              handleRemoveEducationItem={handleRemoveEducationItem}
+              handleEditEducationItem={handleEditEducationItem}
+              handleSubmitEditEducationItem={handleSubmitEditEducationItem}
             />
           </section>
           <section>
