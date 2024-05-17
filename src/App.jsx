@@ -4,6 +4,7 @@ import EducationInfo from "./components/educationInfo";
 import WorkInfo from "./components/workInfo";
 import DisplayGeneralInfo from "./components/displayGeneralInfo";
 import DisplayEducationInfo from "./components/displayEducationInfo";
+import DisplayWorkInfo from "./components/displayWorkInfo";
 
 import "./normalize.css";
 import "./App.css";
@@ -26,7 +27,7 @@ function App() {
     setter(event.target.value);
   }
 
-  function handleArrayChange(newObject) {
+  function handleEducationArrayChange(newObject) {
     setEducationArray((prevEducationArray) => [
       ...prevEducationArray,
       newObject,
@@ -50,6 +51,34 @@ function App() {
   function handleSubmitEditEducationItem(itemId, updatedItem) {
     setEducationArray((prevEducationArray) =>
       prevEducationArray.map((item) =>
+        item.id === itemId ? { ...item, ...updatedItem } : item
+      )
+    );
+  }
+
+  const [workArray, setWorkArray] = useState([]);
+
+  function handleWorkArrayChange(newObject) {
+    setWorkArray((prevWorkArray) => [...prevWorkArray, newObject]);
+    // addItem();
+    // console.log(educationArray);
+  }
+
+  function handleRemoveWorkItem(itemId) {
+    setWorkArray(workArray.filter((item) => item.id !== itemId));
+  }
+
+  function handleEditWorkItem(itemId) {
+    setWorkArray((prevWorkArray) =>
+      prevWorkArray.map((item) =>
+        item.id === itemId ? { ...item, edit: true } : item
+      )
+    );
+  }
+
+  function handleSubmitEditWorkItem(itemId, updatedItem) {
+    setWorkArray((prevWorkArray) =>
+      prevWorkArray.map((item) =>
         item.id === itemId ? { ...item, ...updatedItem } : item
       )
     );
@@ -88,7 +117,7 @@ function App() {
             {" "}
             <EducationInfo
               educationArray={educationArray}
-              handleArrayChange={handleArrayChange}
+              handleEducationArrayChange={handleEducationArrayChange}
               handleRemoveEducationItem={handleRemoveEducationItem}
               handleEditEducationItem={handleEditEducationItem}
               handleSubmitEditEducationItem={handleSubmitEditEducationItem}
@@ -96,7 +125,13 @@ function App() {
           </section>
           <section>
             {" "}
-            <WorkInfo />
+            <WorkInfo
+              workArray={workArray}
+              handleWorkArrayChange={handleWorkArrayChange}
+              handleRemoveWorkItem={handleRemoveWorkItem}
+              handleEditWorkItem={handleEditWorkItem}
+              handleSubmitEditWorkItem={handleSubmitEditWorkItem}
+            />
           </section>
         </div>
         <div className="container right">
@@ -119,7 +154,7 @@ function App() {
           </section>
           <section>
             {" "}
-            <WorkInfo />
+            <DisplayWorkInfo array={workArray} />
           </section>
         </div>
       </main>

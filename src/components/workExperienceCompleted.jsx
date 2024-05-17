@@ -26,15 +26,27 @@ function WorkExperienceCompleted({
 
   return (
     <>
-      <p>Company Name - {company}</p>
-      <p>Position - {position}</p>
-      <p>Main responsibilities - {responsibilities}</p>
-      <p>Start of Work - {startDate}</p>
-      <p>End of Work - {endDate}</p>
-      <button onClick={handleEdit}>Edit</button>
-      <button onClick={handleRemove}>Remove</button>
+      <div className="workItem">
+        <p>
+          {company} - {position}
+        </p>
+        <div className="workItemButtons">
+          <button onClick={handleEdit}>Edit</button>
+          <button onClick={handleRemove}>Remove</button>
+        </div>
+      </div>
     </>
   );
 }
 
 export default WorkExperienceCompleted;
+
+{
+  /* <p>Company Name - {company}</p>
+<p>Position - {position}</p>
+<p>Main responsibilities - {responsibilities}</p>
+<p>Start of Work - {startDate}</p>
+<p>End of Work - {endDate}</p>
+<button onClick={handleEdit}>Edit</button>
+<button onClick={handleRemove}>Remove</button> */
+}

@@ -72,7 +72,7 @@ function WorkExperienceEdit({
           <div>
             <label htmlFor="jobStartDate">Start of Work </label>
             <input
-              type="date"
+              type="month"
               id="jobStartDate"
               name="jobStartDate"
               value={jobStartDate}
@@ -83,7 +83,7 @@ function WorkExperienceEdit({
           <div>
             <label htmlFor="jobEndDate">End of Work </label>
             <input
-              type="date"
+              type="month"
               id="jobEndDate"
               name="jobEndDate"
               value={jobEndDate}

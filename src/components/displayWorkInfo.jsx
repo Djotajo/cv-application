@@ -1,16 +1,17 @@
 import { useState } from "react";
-import DisplayEducationItem from "./displayEducationItem";
+import DisplayWorkItem from "./displayWorkItem";
 
 import Icon from "@mdi/react";
 
-function DisplayEducationInfo({ array }) {
+function DisplayWorkInfo({ array }) {
   const list = array.map((item) =>
     item.edit === true ? null : (
-      <DisplayEducationItem
-        name={item.schoolName}
-        title={item.title}
-        startDate={item.start}
-        endDate={item.end}
+      <DisplayWorkItem
+        company={item.companyName}
+        position={item.jobPosition}
+        responsibilities={item.responsibilities}
+        startDate={item.jobStartDate}
+        endDate={item.jobEndDate}
         key={item.id}
         id={item.id}
         // handleEditItem={editItem}
@@ -21,10 +22,10 @@ function DisplayEducationInfo({ array }) {
 
   return (
     <>
-      <h2>Education</h2>
+      <h2>Work Experience</h2>
       <section className="displayEducationInfo">{list}</section>
     </>
   );
 }
 
-export default DisplayEducationInfo;
+export default DisplayWorkInfo;

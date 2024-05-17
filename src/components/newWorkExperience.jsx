@@ -43,7 +43,7 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
           </div>
 
           <div>
-            <label htmlFor="jobPosition">Title Earned </label>
+            <label htmlFor="jobPosition">Position </label>
             <input
               type="text"
               id="jobPosition"
@@ -66,7 +66,7 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
           <div>
             <label htmlFor="jobStartDate">Start of Work </label>
             <input
-              type="date"
+              type="month"
               id="jobStartDate"
               name="jobStartDate"
               onChange={(e) => setJobStartDate(e.target.value)}
@@ -76,7 +76,7 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
           <div>
             <label htmlFor="jobEndDate">End of Work </label>
             <input
-              type="date"
+              type="month"
               id="jobEndDate"
               name="jobEndDate"
               onChange={(e) => setJobEndDate(e.target.value)}

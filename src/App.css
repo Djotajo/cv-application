@@ -162,7 +162,8 @@ section label {
 }
  */
 
-.eduItem {
+.eduItem,
+.workItem {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -170,13 +171,15 @@ section label {
   padding: 1em;
 }
 
-.eduItemButtons {
+.eduItemButtons,
+.workItemButtons {
   display: flex;
   flex-direction: row;
   gap: 1em;
 }
 
-.eduItemButtons button {
+.eduItemButtons button,
+.workItemButtons button {
   padding: 5px;
   width: 100%;
 }

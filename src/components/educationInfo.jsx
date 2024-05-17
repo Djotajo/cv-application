@@ -5,7 +5,7 @@ import EducationPieceEdit from "./educationPieceEdit";
 
 function EducationInfo({
   educationArray,
-  handleArrayChange,
+  handleEducationArrayChange,
   handleRemoveEducationItem,
   handleEditEducationItem,
   handleSubmitEditEducationItem,
@@ -14,7 +14,7 @@ function EducationInfo({
   const [addNew, setAddNew] = useState(false);
 
   function editArray(newObject) {
-    handleArrayChange(newObject);
+    handleEducationArrayChange(newObject);
     addItem();
     console.log(educationArray);
   }
@@ -51,23 +51,6 @@ function EducationInfo({
       )
     );
   }
-
-  // function editItem(itemId) {
-  //   setEducationArray((prevEducationArray) =>
-  //     prevEducationArray.map((item) =>
-  //       item.id === itemId ? { ...item, edit: true } : item
-  //     )
-  //   );
-  // }
-
-  // function submitEditItem(itemId, updatedItem) {
-  //   setEducationArray((prevEducationArray) =>
-  //     prevEducationArray.map((item) =>
-  //       item.id === itemId ? { ...item, ...updatedItem } : item
-  //     )
-  //   );
-  //   console.dir(educationArray);
-  // }
 
   return (
     <>

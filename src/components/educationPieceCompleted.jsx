@@ -34,14 +34,6 @@ function EducationPieceCompleted({
           <button onClick={handleRemove}>Remove</button>
         </div>
       </div>
-      {/* <p>
-        {name} - {title}
-      </p>
-      <p>Title Earned - {title}</p>
-      <p>Start of Studies - {startDate}</p>
-      <p>End of Studies - {endDate}</p>
-      <button onClick={handleEdit}>Edit</button>
-      <button onClick={handleRemove}>Remove</button> */}
     </>
   );
 }
