@@ -29,7 +29,8 @@ function DisplayGeneralInfo({
             </h1>
             <h2>{title}</h2>
             <h3>
-              <Icon path={mdiMapMarker} size={1} /> {city}, {country}
+              <Icon path={mdiMapMarker} size={1} viewBox="5 2 14 20" /> {city},{" "}
+              {country}
             </h3>
           </div>
           <div className="contactInfo">

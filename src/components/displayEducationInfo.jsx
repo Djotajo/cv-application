@@ -22,7 +22,10 @@ function DisplayEducationInfo({ array }) {
   return (
     <>
       <h2>Education</h2>
-      <section className="displayEducationInfo">{list}</section>
+      <hr className="sectionHeaderLine" />
+      <section className="displayEducationInfo">
+        <ul>{list}</ul>
+      </section>
     </>
   );
 }

@@ -1,27 +1,6 @@
 import { useState } from "react";
 
-function DisplayEducationItem({
-  name,
-  title,
-  startDate,
-  endDate,
-  id,
-  // handleEditItem,
-  // handleRemoveItem,
-}) {
-  // const [edit, setEdit] = useState(false);
-
-  // function handleRemove(event) {
-  //   event.preventDefault();
-
-  //   handleRemoveItem(id);
-  // }
-
-  // function handleEdit() {
-  //   setEdit(true);
-  //   console.log(edit);
-  //   handleEditItem(id);
-  // }
+function DisplayEducationItem({ name, title, startDate, endDate, id }) {
   const dateOptions = { month: "long", year: "numeric" };
 
   const [startYear, startMonth] = startDate.split("-");
@@ -34,13 +13,16 @@ function DisplayEducationItem({
 
   return (
     <>
-      <h3>{name}</h3>
-      <p>{title}</p>
-      <p>
-        {formattedDateStart} - {formattedDateEnd}
-      </p>
-      {/* <button onClick={handleEdit}>Edit</button>
+      <li className="itemDisplay">
+        <p>
+          {formattedDateStart} - {formattedDateEnd}
+        </p>
+        <h3>{title}</h3>
+        <p>{name}</p>
+
+        {/* <button onClick={handleEdit}>Edit</button>
       <button onClick={handleRemove}>Remove</button> */}
+      </li>
     </>
   );
 }

@@ -16,6 +16,7 @@ function WorkInfo({
   function editArray(newObject) {
     handleWorkArrayChange(newObject);
     addItem();
+    console.log(workArray);
   }
 
   function addItem() {

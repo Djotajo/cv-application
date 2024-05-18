@@ -21,7 +21,22 @@ function App() {
     "https://ba.linkedin.com/in/djordje-kenjalo-12b874b5"
   );
 
-  const [educationArray, setEducationArray] = useState([]);
+  const [educationArray, setEducationArray] = useState([
+    {
+      id: "06b95b8b-fe78-4752-9913-f35644881863",
+      schoolName: "University of Banja Luka",
+      title: "Bachelor of Law",
+      start: "2024-01",
+      end: "2024-01",
+    },
+    {
+      id: "4753f1e0-8d28-4013-97ff-5a9016e6e4b1",
+      schoolName: "Kazan Federal University",
+      title: "Master of Laws",
+      start: "2024-01",
+      end: "2024-01",
+    },
+  ]);
 
   function handleInputChange(event, setter) {
     setter(event.target.value);
@@ -33,7 +48,7 @@ function App() {
       newObject,
     ]);
     // addItem();
-    // console.log(educationArray);
+    console.log(educationArray);
   }
 
   function handleRemoveEducationItem(itemId) {
@@ -56,7 +71,26 @@ function App() {
     );
   }
 
-  const [workArray, setWorkArray] = useState([]);
+  const [workArray, setWorkArray] = useState([
+    {
+      id: "b7bba7c3-0597-454d-9522-6fd9c1d2117a",
+      companyName: "Visi privredni sud",
+      jobPosition: "Sudski pripravnik",
+      responsibilities:
+        "sacinjavanje dokumenata\nnosanje papira\npisanje presuda",
+      jobStartDate: "2024-01",
+      jobEndDate: "2024-03",
+    },
+    {
+      id: "e4396060-68f7-482c-b5de-ad5df55e1e6a",
+      companyName: "Univerzitet u Banjoj Luci",
+      jobPosition: "Visi strucni saradnik za razmjenu studenata i osoblja",
+      responsibilities:
+        "konkursi za razmjene\npromocija putovanja\nugovori o saradnji",
+      jobStartDate: "2024-01",
+      jobEndDate: "2024-04",
+    },
+  ]);
 
   function handleWorkArrayChange(newObject) {
     setWorkArray((prevWorkArray) => [...prevWorkArray, newObject]);

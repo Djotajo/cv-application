@@ -23,7 +23,10 @@ function DisplayWorkInfo({ array }) {
   return (
     <>
       <h2>Work Experience</h2>
-      <section className="displayEducationInfo">{list}</section>
+      <hr className="sectionHeaderLine" />
+      <section className="displayEducationInfo">
+        <ul>{list}</ul>
+      </section>
     </>
   );
 }
