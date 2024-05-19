@@ -95,6 +95,7 @@ fieldset button {
   width: 100%;
   max-width: 50%;
   background-color: white;
+  margin-top: 1em;
 }
 
 .left {
@@ -133,15 +134,12 @@ fieldset button {
   height: 100%;
   text-align: start;
   padding: 1em;
-  /* flex: 1; */
 }
 
 .personalInfo {
   justify-self: start;
   width: 65%;
   max-width: 65%;
-  /* border-right: 1px solid grey; */
-  /* box-shadow: 5px 5px 5px grey; */
 }
 
 .personalInfo > *,
@@ -160,7 +158,6 @@ fieldset button {
 .contactInfo {
   width: 35%;
   max-width: 35%;
-  /* box-shadow: 0px 5px 5px grey; */
 }
 
 /* section label {
@@ -252,4 +249,85 @@ ul ul {
 
 .companyName {
   padding-bottom: 1em;
+}
+
+.generalInfoLine {
+  display: none;
+}
+
+@media print {
+  /* Reset margins and padding for the entire document */
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  /* Set a consistent width with a small margin */
+  .content {
+    margin: 0.5in; /* Adjust as needed */
+    width: auto;
+  }
+
+  /* Hide elements that shouldn't be printed */
+  .no-print {
+    display: none;
+  }
+
+  /* Ensure images fit within the content area */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Handle page breaks */
+  .page-break {
+    page-break-before: always;
+  }
+
+  /* Adjust font size and line height for readability */
+  body {
+    font-size: 12pt; /* Adjust as needed */
+    line-height: 1.4; /* Adjust as needed */
+  }
+
+  /* Remove any unnecessary styles */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Specific adjustments for headers and footers */
+  header,
+  footer {
+    page-break-after: always;
+    display: block; /* Ensure they appear correctly */
+  }
+
+  .noPrint {
+    display: none;
+  }
+
+  .print {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .right {
+    border: none;
+    box-shadow: none;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+
+    box-shadow: none;
+  }
+
+  .generalInfoLine {
+    display: block;
+  }
 }

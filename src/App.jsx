@@ -121,7 +121,7 @@ function App() {
   return (
     <>
       <main>
-        <div className="container left">
+        <div className="container left noPrint">
           <section>
             {" "}
             <GeneralInfo
@@ -168,7 +168,7 @@ function App() {
             />
           </section>
         </div>
-        <div className="container right">
+        <div className="container right print">
           <section>
             {" "}
             <DisplayGeneralInfo

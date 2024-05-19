@@ -18,6 +18,10 @@ function DisplayGeneralInfo({
   phone,
   page,
 }) {
+  function printCV() {
+    window.print();
+  }
+
   return (
     <>
       <section className="displayGeneralInfo">
@@ -46,6 +50,10 @@ function DisplayGeneralInfo({
             </h4>
           </div>
         </div>
+        <button onClick={printCV} className="noPrint">
+          Print
+        </button>
+        <hr className="generalInfoLine print" />
       </section>
     </>
   );
