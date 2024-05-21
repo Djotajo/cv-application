@@ -1,12 +1,15 @@
 import { useState } from "react";
 import GeneralInfo from "./generalInfo";
 import Icon from "@mdi/react";
+import FileUpload from "./fileUpload";
 import { mdiEmailOutline } from "@mdi/js";
 import { mdiPhoneOutline } from "@mdi/js";
 import { mdiOpenInNew } from "@mdi/js";
 import { mdiMapMarker } from "@mdi/js";
 
 import "./displayGeneralInfo.css";
+import ImageDisplay from "./imageDisplay";
+import FileInput from "./fileInput";
 
 function DisplayGeneralInfo({
   firstName,
@@ -17,6 +20,7 @@ function DisplayGeneralInfo({
   email,
   phone,
   page,
+  profileImg,
 }) {
   function printCV() {
     window.print();
@@ -31,6 +35,7 @@ function DisplayGeneralInfo({
             <h1>
               {firstName} {lastName}
             </h1>
+            <ImageDisplay backgroundUrl={profileImg} />
             <h2>{title}</h2>
             <h3>
               <Icon path={mdiMapMarker} size={1} viewBox="5 2 14 20" /> {city},{" "}
@@ -53,8 +58,10 @@ function DisplayGeneralInfo({
         <button onClick={printCV} className="noPrint">
           Print
         </button>
+        <FileUpload />
         <hr className="generalInfoLine print" />
       </section>
+      <div id="profilePic" className="print"></div>
     </>
   );
 }

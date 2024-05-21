@@ -5,6 +5,8 @@ import WorkInfo from "./components/workInfo";
 import DisplayGeneralInfo from "./components/displayGeneralInfo";
 import DisplayEducationInfo from "./components/displayEducationInfo";
 import DisplayWorkInfo from "./components/displayWorkInfo";
+import FileInput from "./components/fileInput";
+import ImageDisplay from "./components/imageDisplay";
 
 import "./normalize.css";
 import "./App.css";
@@ -118,12 +120,26 @@ function App() {
     );
   }
 
+  const [file, setFile] = useState(null);
+  const [backgroundUrl, setBackgroundUrl] = useState("");
+
+  const handleFileChange = (selectedFile) => {
+    setFile(selectedFile);
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      setBackgroundUrl(e.target.result);
+    };
+    reader.readAsDataURL(selectedFile);
+  };
+
   return (
     <>
       <main>
         <div className="container left noPrint">
           <section>
             {" "}
+            <FileInput onChange={handleFileChange} />
             <GeneralInfo
               name={firstName}
               onFirstNameChange={(event) =>
@@ -180,6 +196,7 @@ function App() {
               email={email}
               phone={phone}
               page={page}
+              profileImg={backgroundUrl}
             />
           </section>
           <section>
