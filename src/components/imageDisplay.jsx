@@ -1,16 +1,21 @@
+import person from "../assets/person.png";
+
 function ImageDisplay({ backgroundUrl }) {
   return (
-    <div
-      style={{
-        width: "200px",
-        height: "200px",
-        backgroundImage: backgroundUrl ? `url(${backgroundUrl})` : "none",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        border: backgroundUrl ? "none" : "1px solid black",
-        backgroundColor: backgroundUrl ? "transparent" : "white",
-      }}
-    >
+    <div className="profilePictureDiv">
+      {backgroundUrl ? (
+        <img
+          src={backgroundUrl}
+          alt="profile picture"
+          className="profilePicture"
+        />
+      ) : (
+        <img
+          src={person}
+          alt="profile picture silhouette"
+          className="profilePicture"
+        />
+      )}
       {/* Other content */}
     </div>
   );

@@ -4,7 +4,9 @@ function FileInput({ onChange }) {
     onChange(selectedFile);
   };
 
-  return <input type="file" onChange={handleFileChange} />;
+  return (
+    <input type="file" onChange={handleFileChange} id="addProfilePicture" />
+  );
 }
 
 export default FileInput;

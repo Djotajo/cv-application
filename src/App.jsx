@@ -7,6 +7,8 @@ import DisplayEducationInfo from "./components/displayEducationInfo";
 import DisplayWorkInfo from "./components/displayWorkInfo";
 import FileInput from "./components/fileInput";
 import ImageDisplay from "./components/imageDisplay";
+import Icon from "@mdi/react";
+import { mdiPlusCircleOutline } from "@mdi/js";
 
 import "./normalize.css";
 import "./App.css";
@@ -139,7 +141,15 @@ function App() {
         <div className="container left noPrint">
           <section>
             {" "}
-            <FileInput onChange={handleFileChange} />
+            <div>
+              <label htmlFor="addProfilePicture" className="file-input-label">
+                <Icon path={mdiPlusCircleOutline} size={1} />{" "}
+                <p>Upload your profile picture</p>
+              </label>
+              <div id="profilePicInputWrap">
+                <FileInput onChange={handleFileChange} />
+              </div>
+            </div>
             <GeneralInfo
               name={firstName}
               onFirstNameChange={(event) =>

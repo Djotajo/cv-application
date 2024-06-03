@@ -29,12 +29,12 @@ function DisplayGeneralInfo({
   return (
     <>
       <section className="displayGeneralInfo">
+        <h1>
+          {firstName} {lastName}
+        </h1>
         <div className="row">
           <div className="personalInfo">
             {" "}
-            <h1>
-              {firstName} {lastName}
-            </h1>
             <ImageDisplay backgroundUrl={profileImg} />
             <h2>{title}</h2>
             <h3>
@@ -58,10 +58,8 @@ function DisplayGeneralInfo({
         <button onClick={printCV} className="noPrint">
           Print
         </button>
-        <FileUpload />
         <hr className="generalInfoLine print" />
       </section>
-      <div id="profilePic" className="print"></div>
     </>
   );
 }
