@@ -2,9 +2,11 @@ import { useState } from "react";
 import GeneralInfo from "./components/generalInfo";
 import EducationInfo from "./components/educationInfo";
 import WorkInfo from "./components/workInfo";
+import LanguageInfo from "./components/languageInfo";
 import DisplayGeneralInfo from "./components/displayGeneralInfo";
 import DisplayEducationInfo from "./components/displayEducationInfo";
 import DisplayWorkInfo from "./components/displayWorkInfo";
+import DisplayLanguageInfo from "./components/displayLanguageInfo";
 import FileInput from "./components/fileInput";
 import ImageDisplay from "./components/imageDisplay";
 import Icon from "@mdi/react";
@@ -123,6 +125,40 @@ function App() {
     );
   }
 
+  const [languageArray, setLanguageArray] = useState([
+    {
+      id: "06b95b8s-fe78-4752-9913-f35644881863",
+      language: "German",
+      level: "B1",
+    },
+  ]);
+
+  function handleLanguageArrayChange(newObject) {
+    setLanguageArray((prevLanguageArray) => [...prevLanguageArray, newObject]);
+    // addItem();
+    console.log(languageArray);
+  }
+
+  function handleRemoveLanguage(itemId) {
+    setLanguageArray(languageArray.filter((item) => item.id !== itemId));
+  }
+
+  function handleEditLanguage(itemId) {
+    setLanguageArray((prevLanguageArray) =>
+      prevLanguageArray.map((item) =>
+        item.id === itemId ? { ...item, edit: true } : item
+      )
+    );
+  }
+
+  function handleSubmitLanguage(itemId, updatedItem) {
+    setLanguageArray((prevLanguageArray) =>
+      prevLanguageArray.map((item) =>
+        item.id === itemId ? { ...item, ...updatedItem } : item
+      )
+    );
+  }
+
   function printCV() {
     window.print();
   }
@@ -205,6 +241,17 @@ function App() {
               handleSubmitEditWorkItem={handleSubmitEditWorkItem}
             />
           </section>
+
+          <section>
+            {" "}
+            <LanguageInfo
+              languageArray={languageArray}
+              handleLanguageArrayChange={handleLanguageArrayChange}
+              handleRemoveLanguage={handleRemoveLanguage}
+              handleEditLanguage={handleEditLanguage}
+              handleSubmitLanguage={handleSubmitLanguage}
+            />
+          </section>
         </div>
         <div className="container right print">
           <section>
@@ -226,9 +273,15 @@ function App() {
             {" "}
             <DisplayEducationInfo array={educationArray} />
           </section>
+
           <section>
             {" "}
             <DisplayWorkInfo array={workArray} />
+          </section>
+
+          <section>
+            {" "}
+            <DisplayLanguageInfo array={languageArray} />
           </section>
         </div>
       </main>
