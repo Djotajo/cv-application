@@ -9,6 +9,7 @@ import FileInput from "./components/fileInput";
 import ImageDisplay from "./components/imageDisplay";
 import Icon from "@mdi/react";
 import { mdiPlusCircleOutline } from "@mdi/js";
+import { mdiPrinterOutline } from "@mdi/js";
 
 import "./normalize.css";
 import "./App.css";
@@ -122,6 +123,10 @@ function App() {
     );
   }
 
+  function printCV() {
+    window.print();
+  }
+
   const [file, setFile] = useState(null);
   const [backgroundUrl, setBackgroundUrl] = useState("");
 
@@ -137,6 +142,12 @@ function App() {
 
   return (
     <>
+      <label htmlFor="printButton" className="printButtonLabel noPrint">
+        <Icon path={mdiPrinterOutline} size={2} title="Print" />
+      </label>
+      <button onClick={printCV} className="noPrint" id="printButton">
+        Print
+      </button>
       <main>
         <div className="container left noPrint">
           <section>
@@ -183,6 +194,7 @@ function App() {
               handleSubmitEditEducationItem={handleSubmitEditEducationItem}
             />
           </section>
+
           <section>
             {" "}
             <WorkInfo
@@ -209,6 +221,7 @@ function App() {
               profileImg={backgroundUrl}
             />
           </section>
+
           <section>
             {" "}
             <DisplayEducationInfo array={educationArray} />

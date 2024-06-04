@@ -55,9 +55,9 @@ function DisplayGeneralInfo({
             </h4>
           </div>
         </div>
-        <button onClick={printCV} className="noPrint">
+        {/* <button onClick={printCV} className="noPrint">
           Print
-        </button>
+        </button> */}
         <hr className="generalInfoLine print" />
       </section>
     </>
