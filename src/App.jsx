@@ -196,6 +196,10 @@ function App() {
               <div id="profilePicInputWrap">
                 <FileInput onChange={handleFileChange} />
               </div>
+              <div className="file-input-notice">
+                <p>Maximum file size: 2MB</p>
+                <p>Allowed formats: JPG, PNG</p>
+              </div>
             </div>
             <GeneralInfo
               name={firstName}
