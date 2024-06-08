@@ -189,7 +189,7 @@ function App() {
         <div className="container left noPrint">
           <section>
             {" "}
-            <div>
+            <div className="">
               <label htmlFor="addProfilePicture" className="file-input-label">
                 <Icon path={mdiPlusCircleOutline} size={1} />{" "}
                 <p>Upload your profile picture</p>
@@ -225,7 +225,7 @@ function App() {
               onPageChange={(event) => handleInputChange(event, setPage)}
             />
           </section>
-          <section>
+          <section className="inputSection">
             {" "}
             <EducationInfo
               educationArray={educationArray}
@@ -236,7 +236,7 @@ function App() {
             />
           </section>
 
-          <section>
+          <section className="inputSection">
             {" "}
             <WorkInfo
               workArray={workArray}
@@ -247,7 +247,7 @@ function App() {
             />
           </section>
 
-          <section>
+          <section className="inputSection">
             {" "}
             <LanguageInfo
               languageArray={languageArray}
