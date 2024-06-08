@@ -57,18 +57,23 @@ function WorkInfo({
 
   return (
     <>
-      <h2>Work Experience</h2>
-      <button onClick={addItem}>Add new</button>
-      {addNew ? (
-        <NewWorkExperience
-          workArray={workArray}
-          handleAdd={editArray}
-          handleCancel={addItem}
-        />
-      ) : (
-        <span></span>
-      )}
-      {list}
+      <fieldset>
+        <legend>
+          <h2>Work Experience</h2>
+        </legend>
+
+        <button onClick={addItem}>Add new</button>
+        {addNew ? (
+          <NewWorkExperience
+            workArray={workArray}
+            handleAdd={editArray}
+            handleCancel={addItem}
+          />
+        ) : (
+          <span></span>
+        )}
+        {list}
+      </fieldset>
     </>
   );
 }

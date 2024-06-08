@@ -50,18 +50,23 @@ function LanguageInfo({
 
   return (
     <>
-      <h2>Languages</h2>
-      <button onClick={addItem}>Add new</button>
-      {addNew ? (
-        <NewLanguage
-          languageArray={languageArray}
-          handleAdd={editArray}
-          handleCancel={addItem}
-        />
-      ) : (
-        <span></span>
-      )}
-      {list}
+      <fieldset>
+        <legend>
+          <h2>Languages</h2>
+        </legend>
+
+        <button onClick={addItem}>Add new</button>
+        {addNew ? (
+          <NewLanguage
+            languageArray={languageArray}
+            handleAdd={editArray}
+            handleCancel={addItem}
+          />
+        ) : (
+          <span></span>
+        )}
+        {list}
+      </fieldset>
     </>
   );
 }

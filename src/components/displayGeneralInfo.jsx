@@ -29,36 +29,15 @@ function DisplayGeneralInfo({
   return (
     <>
       <section className="displayGeneralInfo">
-        <h1>
-          {firstName} {lastName}
-        </h1>
-        <div className="row">
-          <div className="personalInfo">
-            {" "}
-            <ImageDisplay backgroundUrl={profileImg} />
-            <h2>{title}</h2>
-            <h3>
-              <Icon path={mdiMapMarker} size={1} viewBox="5 2 14 20" /> {city},{" "}
-              {country}
-            </h3>
-          </div>
-          <div className="contactInfo">
-            {" "}
-            <h4>
-              <Icon path={mdiEmailOutline} size={1} /> {email}
-            </h4>
-            <h4>
-              <Icon path={mdiPhoneOutline} size={1} /> {phone}
-            </h4>
-            <h4>
-              <Icon path={mdiOpenInNew} size={1} /> <a href={page}>Web Page</a>
-            </h4>
-          </div>
+        <aside className="generalInfoAside">
+          <ImageDisplay backgroundUrl={profileImg} />
+        </aside>
+        <div className="generalInfoMain">
+          <h1>
+            {firstName} {lastName}
+          </h1>
+          <h2>{title}</h2>
         </div>
-        {/* <button onClick={printCV} className="noPrint">
-          Print
-        </button> */}
-        <hr className="generalInfoLine print" />
       </section>
     </>
   );

@@ -19,6 +19,10 @@ function EducationInfo({
     console.log(educationArray);
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
   function addItem() {
     setAddNew(!addNew);
     console.log(addNew);
@@ -54,18 +58,23 @@ function EducationInfo({
 
   return (
     <>
-      <h2>Education</h2>
-      <button onClick={addItem}>Add new</button>
-      {addNew ? (
-        <NewEducationPiece
-          educationArray={educationArray}
-          handleAdd={editArray}
-          handleCancel={addItem}
-        />
-      ) : (
-        <span></span>
-      )}
-      {list}
+      <fieldset>
+        <legend>
+          <h2>Education</h2>
+        </legend>
+        {/* <h2>Education</h2> */}
+        <button onClick={addItem}>Add new</button>
+        {addNew ? (
+          <NewEducationPiece
+            educationArray={educationArray}
+            handleAdd={editArray}
+            handleCancel={addItem}
+          />
+        ) : (
+          <span></span>
+        )}
+        {list}
+      </fieldset>
     </>
   );
 }

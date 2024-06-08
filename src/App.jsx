@@ -6,6 +6,7 @@ import LanguageInfo from "./components/languageInfo";
 import DisplayGeneralInfo from "./components/displayGeneralInfo";
 import DisplayEducationInfo from "./components/displayEducationInfo";
 import DisplayWorkInfo from "./components/displayWorkInfo";
+import DisplayContactInfo from "./components/displayContactInfo";
 import DisplayLanguageInfo from "./components/displayLanguageInfo";
 import FileInput from "./components/fileInput";
 import ImageDisplay from "./components/imageDisplay";
@@ -272,21 +273,34 @@ function App() {
               profileImg={backgroundUrl}
             />
           </section>
+          <div className="mainContent">
+            <aside className="mainContentAside">
+              <section>
+                <DisplayContactInfo
+                  city={city}
+                  country={country}
+                  email={email}
+                  phone={phone}
+                  page={page}
+                />
+              </section>
+              <section>
+                {" "}
+                <DisplayLanguageInfo array={languageArray} />
+              </section>
+            </aside>
+            <div className="mainContentDiv">
+              <section>
+                {" "}
+                <DisplayEducationInfo array={educationArray} />
+              </section>
 
-          <section>
-            {" "}
-            <DisplayEducationInfo array={educationArray} />
-          </section>
-
-          <section>
-            {" "}
-            <DisplayWorkInfo array={workArray} />
-          </section>
-
-          <section>
-            {" "}
-            <DisplayLanguageInfo array={languageArray} />
-          </section>
+              <section>
+                {" "}
+                <DisplayWorkInfo array={workArray} />
+              </section>
+            </div>
+          </div>
         </div>
       </main>
     </>
