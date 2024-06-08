@@ -326,8 +326,8 @@ ul ul {
 
   /* Adjust font size and line height for readability */
   body {
-    font-size: 12pt; /* Adjust as needed */
-    line-height: 1.4; /* Adjust as needed */
+    font-size: 12pt;
+    line-height: 1.4;
   }
 
   /* Remove any unnecessary styles */
@@ -340,6 +340,14 @@ ul ul {
   footer {
     page-break-after: always;
     display: block; /* Ensure they appear correctly */
+  }
+
+  main,
+  #root {
+    display: block;
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid black; */
   }
 
   .noPrint {
@@ -378,6 +386,7 @@ ul ul {
 .profilePictureDiv {
   width: 200px;
   height: 200px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
