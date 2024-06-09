@@ -3,11 +3,13 @@ import GeneralInfo from "./components/generalInfo";
 import EducationInfo from "./components/educationInfo";
 import WorkInfo from "./components/workInfo";
 import LanguageInfo from "./components/languageInfo";
+import SkillInfo from "./components/skillInfo";
 import DisplayGeneralInfo from "./components/displayGeneralInfo";
 import DisplayEducationInfo from "./components/displayEducationInfo";
 import DisplayWorkInfo from "./components/displayWorkInfo";
 import DisplayContactInfo from "./components/displayContactInfo";
 import DisplayLanguageInfo from "./components/displayLanguageInfo";
+import DisplaySkillInfo from "./components/displaySkillInfo";
 import FileInput from "./components/fileInput";
 import ImageDisplay from "./components/imageDisplay";
 import Icon from "@mdi/react";
@@ -160,6 +162,37 @@ function App() {
     );
   }
 
+  const [skillArray, setSkillArray] = useState([
+    {
+      id: "06b95b8s-fe78-4752-9913-f35644881863",
+      skill: "JavaScript",
+    },
+  ]);
+
+  function handleSkillArrayChange(newObject) {
+    setSkillArray((prevSkillArray) => [...prevSkillArray, newObject]);
+  }
+
+  function handleRemoveSkill(itemId) {
+    setSkillArray(skillArray.filter((item) => item.id !== itemId));
+  }
+
+  function handleEditSkill(itemId) {
+    setSkillArray((prevSkillArray) =>
+      prevSkillArray.map((item) =>
+        item.id === itemId ? { ...item, edit: true } : item
+      )
+    );
+  }
+
+  function handleSubmitSkill(itemId, updatedItem) {
+    setSkillArray((prevSkillArray) =>
+      prevSkillArray.map((item) =>
+        item.id === itemId ? { ...item, ...updatedItem } : item
+      )
+    );
+  }
+
   function printCV() {
     window.print();
   }
@@ -257,6 +290,17 @@ function App() {
               handleSubmitLanguage={handleSubmitLanguage}
             />
           </section>
+
+          <section className="inputSection">
+            {" "}
+            <SkillInfo
+              skillArray={skillArray}
+              handleSkillArrayChange={handleSkillArrayChange}
+              handleRemoveSkill={handleRemoveSkill}
+              handleEditSkill={handleEditSkill}
+              handleSubmitLanguage={handleSubmitSkill}
+            />
+          </section>
         </div>
         <div className="container right print">
           <section>
@@ -287,6 +331,10 @@ function App() {
               <section>
                 {" "}
                 <DisplayLanguageInfo array={languageArray} />
+              </section>
+              <section>
+                {" "}
+                <DisplaySkillInfo array={skillArray} />
               </section>
             </aside>
             <div className="mainContentDiv">

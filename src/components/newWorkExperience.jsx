@@ -57,8 +57,8 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
             <textarea
               id="responsibilities"
               name="responsibilities"
-              rows="4"
-              cols="50"
+              rows="6"
+              cols="30"
               onChange={(e) => setResponsibilities(e.target.value)}
             />
           </div>

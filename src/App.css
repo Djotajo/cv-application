@@ -83,6 +83,10 @@ fieldset button {
   padding: 1em;
 }
 
+textarea {
+  width: 100%;
+}
+
 .gridItemText {
   padding: 5px;
   color: #34495e;
@@ -160,7 +164,6 @@ fieldset button {
 .mainContentAside {
   display: flex;
   flex-direction: column;
-  align-items: center;
   background-color: #ecf0f1;
   padding: 1em;
   box-sizing: border-box;
