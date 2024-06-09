@@ -37,6 +37,7 @@ function NewEducationPiece({ educationArray, handleAdd, handleCancel }) {
               id="schoolName"
               name="schoolName"
               onChange={(e) => setSchoolName(e.target.value)}
+              autoFocus
             />
           </div>
 

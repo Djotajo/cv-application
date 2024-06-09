@@ -31,6 +31,7 @@ function NewSkill({ skillArray, handleAdd, handleCancel }) {
               name="skill"
               onChange={(e) => setSkill(e.target.value)}
               required
+              autoFocus
             />
           </div>
 

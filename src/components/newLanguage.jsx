@@ -33,6 +33,7 @@ function NewLanguage({ languageArray, handleAdd, handleCancel }) {
               name="language"
               onChange={(e) => setLanguage(e.target.value)}
               required
+              autoFocus
             />
           </div>
 

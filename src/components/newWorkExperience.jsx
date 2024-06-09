@@ -39,6 +39,7 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
               id="companyName"
               name="companyName"
               onChange={(e) => setCompanyName(e.target.value)}
+              autoFocus
             />
           </div>
 
