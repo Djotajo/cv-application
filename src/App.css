@@ -64,7 +64,7 @@ button {
 fieldset {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   gap: 1em;
   /* border: none; */
 }
@@ -81,6 +81,7 @@ fieldset button {
   width: 30%;
   text-align: center;
   padding: 1em;
+  align-self: center;
 }
 
 textarea {
@@ -534,7 +535,7 @@ form,
 .inputSection {
   width: 100%; /* Adjust to your layout */
   margin: auto;
-  padding: 20px;
+  /* padding: 20px; */
   padding-bottom: 0;
   background-color: #ffffff;
   /* border: 1px solid #e0e0e0; */
@@ -547,7 +548,7 @@ form fieldset,
   border: 1px solid #bdc3c7; /* Light Gray border */
   border-radius: 5px;
   padding: 20px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 form legend,
@@ -555,7 +556,12 @@ form legend,
   font-size: 1.5em;
   font-weight: bold;
   color: #2c3e50; /* Dark Blue */
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
+}
+
+legend h2 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 form label {
@@ -606,4 +612,45 @@ form button:hover,
   margin-bottom: 1em;
   font-size: 1em;
   font-weight: 500;
+}
+
+@media (max-width: 1000px) {
+  #root {
+    width: 90%;
+    display: block;
+    position: relative;
+    padding: 2em 0 5em 0;
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  .left {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .right {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .printButtonLabel {
+    position: absolute;
+    top: unset;
+    bottom: 1em;
+    right: unset;
+    margin-left: auto;
+    /* right: 0;
+    margin-left: 0;
+    width: 100%;
+    margin-right: 0; */
+    z-index: 0;
+    background-color: white;
+    border: 1px solid grey;
+    cursor: pointer;
+
+    color: #34495e;
+  }
 }
