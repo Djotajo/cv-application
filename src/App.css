@@ -103,7 +103,7 @@ textarea {
   width: 100%;
   max-width: 50%;
   background-color: white;
-  margin-top: 1em;
+  /* margin-top: 1em; */
 }
 
 .left {
@@ -355,19 +355,10 @@ ul ul {
     margin: 0;
   }
 
-  body {
-    margin-top: 1rem;
-  }
-
   /* Set a consistent width with a small margin */
   .content {
     margin: 0.5in; /* Adjust as needed */
     width: auto;
-  }
-
-  /* Hide elements that shouldn't be printed */
-  .no-print {
-    display: none;
   }
 
   /* Ensure images fit within the content area */
@@ -404,7 +395,6 @@ ul ul {
     display: block;
     margin: 0;
     padding: 0;
-    /* border: 1px solid black; */
   }
 
   .noPrint {
@@ -414,11 +404,17 @@ ul ul {
   .print {
     width: 100%;
     max-width: 100%;
+    display: block;
+  }
+
+  main {
+    align-items: baseline;
   }
 
   .right {
     border: none;
     box-shadow: none;
+    margin-top: 0;
   }
 
   .row {
