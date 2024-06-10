@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 function NewSkill({ skillArray, handleAdd, handleCancel }) {
   const skillId = uuidv4();
   const [skill, setSkill] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   function handleCancelSubmit(event) {
     event.preventDefault();
@@ -12,11 +13,15 @@ function NewSkill({ skillArray, handleAdd, handleCancel }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-
-    handleAdd({
-      id: skillId,
-      skill: skill,
-    });
+    if (skill.trim() !== "") {
+      setErrorMessage("");
+      handleAdd({
+        id: skillId,
+        skill: skill,
+      });
+    } else {
+      setErrorMessage("Please fill in all required fields.");
+    }
   }
 
   return (
@@ -24,7 +29,9 @@ function NewSkill({ skillArray, handleAdd, handleCancel }) {
       <form action="#">
         <fieldset>
           <div>
-            <label htmlFor="skill">Skill </label>
+            <label htmlFor="skill">
+              Skill <span className="required-note">*</span>{" "}
+            </label>
             <input
               type="text"
               id="skill"
@@ -34,9 +41,11 @@ function NewSkill({ skillArray, handleAdd, handleCancel }) {
               autoFocus
             />
           </div>
-
-          <button onClick={handleSubmit}>Submit</button>
+          <button type="submit" onClick={handleSubmit}>
+            Submit
+          </button>
           <button onClick={handleCancelSubmit}>Cancel</button>
+          {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         </fieldset>
       </form>
     </>

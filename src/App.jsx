@@ -298,7 +298,7 @@ function App() {
               handleSkillArrayChange={handleSkillArrayChange}
               handleRemoveSkill={handleRemoveSkill}
               handleEditSkill={handleEditSkill}
-              handleSubmitLanguage={handleSubmitSkill}
+              handleSubmitSkill={handleSubmitSkill}
             />
           </section>
         </div>

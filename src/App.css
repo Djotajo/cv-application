@@ -54,6 +54,10 @@ button {
   width: 10%;
 }
 
+.required-note {
+  color: #2980b9; /* Medium Blue, matching your general color scheme */
+  margin-left: 0.3em; /* Adjust spacing as needed */
+}
 /* .container > section {
   display: flex;
   flex-direction: column;
@@ -145,6 +149,7 @@ textarea {
   flex-direction: column;
   justify-content: center;
   padding-left: 1rem;
+  padding-right: 1rem;
   text-align: justify;
   background-color: white;
 }

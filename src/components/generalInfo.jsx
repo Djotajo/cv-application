@@ -126,8 +126,6 @@ function GeneralInfo({
                 onChange={(e) => onPageChange(e)}
               />
             </div>
-
-            <button onClick={handleSubmit}>Submit</button>
           </fieldset>
         </form>
       </>

@@ -2,15 +2,22 @@ import { useState } from "react";
 
 function SkillEdit({ skill, id, handleEditItem }) {
   const [skillName, setSkill] = useState(skill);
+  const [errorMessage, setErrorMessage] = useState("");
 
   function handleEdit(event) {
     event.preventDefault();
-    const updatedItem = {
-      id: id,
-      language: skillName,
-      edit: false,
-    };
-    handleEditItem(id, updatedItem);
+
+    if (skillName.trim() !== "") {
+      setErrorMessage("");
+      const updatedItem = {
+        id: id,
+        skill: skillName,
+        edit: false,
+      };
+      handleEditItem(id, updatedItem);
+    } else {
+      setErrorMessage("Please fill in all required fields.");
+    }
   }
 
   return (
@@ -18,7 +25,9 @@ function SkillEdit({ skill, id, handleEditItem }) {
       <form action="#">
         <fieldset>
           <div>
-            <label htmlFor="skill">Skill </label>
+            <label htmlFor="skill">
+              Skill <span className="required-note">*</span>{" "}
+            </label>
             <input
               type="text"
               id="skill"
@@ -30,6 +39,7 @@ function SkillEdit({ skill, id, handleEditItem }) {
           </div>
 
           <button onClick={handleEdit}>Submit</button>
+          {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         </fieldset>
       </form>
     </>
