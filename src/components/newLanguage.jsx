@@ -4,7 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 function NewLanguage({ languageArray, handleAdd, handleCancel }) {
   const languageId = uuidv4();
   const [language, setLanguage] = useState("");
-  const [level, setLevel] = useState("");
+  const [level, setLevel] = useState("A1");
+  const [errorMessage, setErrorMessage] = useState("");
 
   function handleCancelSubmit(event) {
     event.preventDefault();
@@ -14,11 +15,16 @@ function NewLanguage({ languageArray, handleAdd, handleCancel }) {
   function handleSubmit(event) {
     event.preventDefault();
 
-    handleAdd({
-      id: languageId,
-      language: language,
-      level: level,
-    });
+    if (language.trim() !== "") {
+      setErrorMessage("");
+      handleAdd({
+        id: languageId,
+        language: language,
+        level: level,
+      });
+    } else {
+      setErrorMessage("Please fill in all required fields.");
+    }
   }
 
   return (
@@ -26,7 +32,9 @@ function NewLanguage({ languageArray, handleAdd, handleCancel }) {
       <form action="#">
         <fieldset>
           <div>
-            <label htmlFor="language">Language </label>
+            <label htmlFor="language">
+              Language <span className="required-note">*</span>{" "}
+            </label>
             <input
               type="text"
               id="language"
@@ -47,6 +55,8 @@ function NewLanguage({ languageArray, handleAdd, handleCancel }) {
                 name="languageLevel"
                 value="A1"
                 onChange={(e) => setLevel(e.target.value)}
+                defaultChecked
+                required
               />
               <label htmlFor="A1">A1</label>
             </div>
@@ -120,6 +130,7 @@ function NewLanguage({ languageArray, handleAdd, handleCancel }) {
 
           <button onClick={handleSubmit}>Submit</button>
           <button onClick={handleCancelSubmit}>Cancel</button>
+          {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         </fieldset>
       </form>
     </>

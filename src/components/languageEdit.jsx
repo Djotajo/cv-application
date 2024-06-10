@@ -3,16 +3,22 @@ import { useState } from "react";
 function LanguageEdit({ language, level, id, handleEditItem }) {
   const [languageName, setLanguage] = useState(language);
   const [languageLevel, setLevel] = useState(level);
+  const [errorMessage, setErrorMessage] = useState("");
 
   function handleEdit(event) {
     event.preventDefault();
-    const updatedItem = {
-      id: id,
-      language: languageName,
-      level: languageLevel,
-      edit: false,
-    };
-    handleEditItem(id, updatedItem);
+
+    if (languageName.trim() !== "") {
+      const updatedItem = {
+        id: id,
+        language: languageName,
+        level: languageLevel,
+        edit: false,
+      };
+      handleEditItem(id, updatedItem);
+    } else {
+      setErrorMessage("Please fill in all required fields.");
+    }
   }
 
   return (
@@ -20,7 +26,9 @@ function LanguageEdit({ language, level, id, handleEditItem }) {
       <form action="#">
         <fieldset>
           <div>
-            <label htmlFor="language">Language </label>
+            <label htmlFor="language">
+              Language <span className="required-note">*</span>
+            </label>
             <input
               type="text"
               id="language"
@@ -41,6 +49,7 @@ function LanguageEdit({ language, level, id, handleEditItem }) {
                 name="languageLevel"
                 value="A1"
                 onChange={(e) => setLevel(e.target.value)}
+                defaultChecked={languageLevel === "A1"}
               />
               <label htmlFor="A1">A1</label>
             </div>
@@ -52,6 +61,7 @@ function LanguageEdit({ language, level, id, handleEditItem }) {
                 name="languageLevel"
                 value="A2"
                 onChange={(e) => setLevel(e.target.value)}
+                defaultChecked={languageLevel === "A2"}
               />
               <label htmlFor="A2">A2</label>
             </div>
@@ -63,6 +73,7 @@ function LanguageEdit({ language, level, id, handleEditItem }) {
                 name="languageLevel"
                 value="B1"
                 onChange={(e) => setLevel(e.target.value)}
+                defaultChecked={languageLevel === "B1"}
               />
               <label htmlFor="B1">B1</label>
             </div>
@@ -74,6 +85,7 @@ function LanguageEdit({ language, level, id, handleEditItem }) {
                 name="languageLevel"
                 value="B2"
                 onChange={(e) => setLevel(e.target.value)}
+                defaultChecked={languageLevel === "B2"}
               />
               <label htmlFor="B2">B2</label>
             </div>
@@ -85,6 +97,7 @@ function LanguageEdit({ language, level, id, handleEditItem }) {
                 name="languageLevel"
                 value="C1"
                 onChange={(e) => setLevel(e.target.value)}
+                defaultChecked={languageLevel === "C1"}
               />
               <label htmlFor="C1">C1</label>
             </div>
@@ -96,6 +109,7 @@ function LanguageEdit({ language, level, id, handleEditItem }) {
                 name="languageLevel"
                 value="C2"
                 onChange={(e) => setLevel(e.target.value)}
+                defaultChecked={languageLevel === "C2"}
               />
               <label htmlFor="C2">C2</label>
             </div>
@@ -107,12 +121,14 @@ function LanguageEdit({ language, level, id, handleEditItem }) {
                 name="languageLevel"
                 value="Native language"
                 onChange={(e) => setLevel(e.target.value)}
+                defaultChecked={languageLevel === "Native language"}
               />
               <label htmlFor="native">Native language</label>
             </div>
           </fieldset>
 
           <button onClick={handleEdit}>Submit</button>
+          {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         </fieldset>
       </form>
     </>
