@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 function NewEducationPiece({ educationArray, handleAdd, handleCancel }) {
@@ -10,6 +9,16 @@ function NewEducationPiece({ educationArray, handleAdd, handleCancel }) {
   const [endDate, setEndDate] = useState("");
   const [ongoing, setOngoing] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const handleCheckboxChange = (e) => {
+    setOngoing(e.target.checked);
+    if (e.target.checked) {
+      setEndDate("ongoing");
+    } else {
+      setEndDate("");
+    }
+    console.log(ongoing);
+  };
 
   function handleCancelSubmit(event) {
     event.preventDefault();
@@ -23,7 +32,7 @@ function NewEducationPiece({ educationArray, handleAdd, handleCancel }) {
       name.trim() !== "" &&
       titleEarned.trim() !== "" &&
       startDate.trim() !== "" &&
-      endDate.trim() !== ""
+      (endDate.trim() !== "" || ongoing === true)
     ) {
       setErrorMessage("");
 
@@ -82,14 +91,27 @@ function NewEducationPiece({ educationArray, handleAdd, handleCancel }) {
           </div>
 
           <div>
+            <label htmlFor="ongoingCheckbox">Ongoing:</label>
+            <input
+              type="checkbox"
+              id="ongoingCheckbox"
+              checked={ongoing}
+              onChange={handleCheckboxChange}
+            />
+          </div>
+
+          <div
+            id="studyDateEndContainer"
+            style={{ display: ongoing ? "none" : "block" }}
+          >
             <label htmlFor="studyDateEnd">End of Studies </label>
             <input
               type="month"
               id="studyDateEnd"
               name="studyDateEnd"
               onChange={(e) => setEndDate(e.target.value)}
-              required
-              aria-required="true"
+              required={!ongoing}
+              aria-required={!ongoing}
             />
           </div>
 

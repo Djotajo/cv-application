@@ -9,7 +9,12 @@ function DisplayEducationItem({ name, title, startDate, endDate, id }) {
 
   const [year, month] = endDate.split("-");
   const dateEnd = new Date(year, month - 1);
-  const formattedDateEnd = dateEnd.toLocaleDateString("en-GB", dateOptions);
+
+  let formattedDateEnd;
+  endDate === "ongoing"
+    ? (formattedDateEnd = "ongoing")
+    : dateEnd.toLocaleDateString("en-GB", dateOptions);
+  // const formattedDateEnd = dateEnd.toLocaleDateString("en-GB", dateOptions);
 
   return (
     <>
