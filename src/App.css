@@ -329,114 +329,6 @@ ul ul {
   display: none;
 }
 
-@media print {
-  /* Reset margins and padding for the entire document */
-  body,
-  html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-
-  /* * {
-    margin: 0;
-    padding: 0;
-  } */
-
-  .sectionHeaderLine {
-    margin-top: 1;
-    margin-bottom: 1rem;
-    padding: 0;
-  }
-
-  h1 {
-    margin-top: 0;
-  }
-
-  section {
-    margin-bottom: 0;
-  }
-
-  ul {
-    margin: 0;
-  }
-
-  /* Set a consistent width with a small margin */
-  .content {
-    margin: 0.5in; /* Adjust as needed */
-    width: auto;
-  }
-
-  /* Ensure images fit within the content area */
-  img {
-    /* max-width: 100%; */
-    height: auto;
-  }
-
-  /* Handle page breaks */
-  .page-break {
-    page-break-before: always;
-  }
-
-  /* Adjust font size and line height for readability */
-  body {
-    font-size: 12pt;
-    line-height: 1.4;
-  }
-
-  /* Remove any unnecessary styles */
-  * {
-    box-sizing: border-box;
-  }
-
-  /* Specific adjustments for headers and footers */
-  header,
-  footer {
-    page-break-after: always;
-    display: block; /* Ensure they appear correctly */
-  }
-
-  main,
-  #root {
-    display: block;
-    margin: 0;
-    padding: 0;
-  }
-
-  .noPrint {
-    display: none;
-  }
-
-  .print {
-    width: 100%;
-    max-width: 100%;
-    display: block;
-  }
-
-  main {
-    align-items: baseline;
-  }
-
-  .right {
-    border: none;
-    box-shadow: none;
-    margin-top: 0;
-  }
-
-  .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: stretch;
-    align-items: center;
-
-    box-shadow: none;
-  }
-
-  .generalInfoLine {
-    display: block;
-  }
-}
-
 @page {
   size: auto;
   margin: 0mm;
@@ -657,5 +549,102 @@ form button:hover,
     cursor: pointer;
 
     color: #34495e;
+  }
+}
+
+@media print {
+  /* Reset margins and padding for the entire document */
+  #root,
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .sectionHeaderLine {
+    margin-top: 1;
+    margin-bottom: 1rem;
+    padding: 0;
+  }
+
+  h1 {
+    margin-top: 0;
+  }
+
+  section {
+    margin-bottom: 0;
+  }
+
+  ul {
+    margin: 0;
+  }
+
+  .content {
+    margin: 0.5in;
+    width: auto;
+  }
+
+  img {
+    height: auto;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  header,
+  footer {
+    page-break-after: always;
+    display: block; /* Ensure they appear correctly */
+  }
+
+  main,
+  #root {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  .noPrint {
+    display: none;
+  }
+
+  .print {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+  }
+
+  main {
+    align-items: baseline;
+  }
+
+  .right {
+    border: none;
+    box-shadow: none;
+    margin-top: 0;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+
+    box-shadow: none;
+  }
+
+  .generalInfoLine {
+    display: block;
   }
 }

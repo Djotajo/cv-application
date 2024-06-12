@@ -12,24 +12,38 @@ function EducationPieceEdit({
   const [titleEarned, setTitle] = useState(title);
   const [start, setStartDate] = useState(startDate);
   const [end, setEndDate] = useState(endDate);
+  const [errorMessage, setErrorMessage] = useState("");
 
   function handleEdit(event) {
     event.preventDefault();
-    const updatedItem = {
-      id: id,
-      schoolName: schoolName,
-      title: titleEarned,
-      start: start,
-      end: end,
-      edit: false,
-    };
-    handleEditItem(id, updatedItem);
+
+    if (
+      schoolName.trim() !== "" &&
+      titleEarned.trim() !== "" &&
+      start.trim() !== "" &&
+      end.trim() !== ""
+    ) {
+      setErrorMessage("");
+
+      const updatedItem = {
+        id: id,
+        schoolName: schoolName,
+        title: titleEarned,
+        start: start,
+        end: end,
+        edit: false,
+      };
+      handleEditItem(id, updatedItem);
+    } else {
+      setErrorMessage("Please fill in all required fields.");
+    }
   }
 
   return (
     <>
       <form action="#">
         <fieldset>
+          <span className="required-note">All fields are required</span>
           <div>
             <label htmlFor="schoolName">School Name </label>
             <input
@@ -38,6 +52,8 @@ function EducationPieceEdit({
               name="schoolName"
               value={schoolName}
               onChange={(e) => setSchoolName(e.target.value)}
+              required
+              aria-required="true"
             />
           </div>
 
@@ -49,6 +65,8 @@ function EducationPieceEdit({
               name="studyTitle"
               value={titleEarned}
               onChange={(e) => setTitle(e.target.value)}
+              required
+              aria-required="true"
             />
           </div>
 
@@ -60,6 +78,8 @@ function EducationPieceEdit({
               name="studyDateStart"
               value={start}
               onChange={(e) => setStartDate(e.target.value)}
+              required
+              aria-required="true"
             />
           </div>
 
@@ -71,10 +91,13 @@ function EducationPieceEdit({
               name="studyDateEnd"
               value={end}
               onChange={(e) => setEndDate(e.target.value)}
+              required
+              aria-required="true"
             />
           </div>
 
           <button onClick={handleEdit}>Submit</button>
+          {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         </fieldset>
       </form>
     </>

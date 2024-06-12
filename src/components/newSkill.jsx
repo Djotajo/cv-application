@@ -39,6 +39,7 @@ function NewSkill({ skillArray, handleAdd, handleCancel }) {
               onChange={(e) => setSkill(e.target.value)}
               required
               autoFocus
+              aria-required="true"
             />
           </div>
           <button type="submit" onClick={handleSubmit}>

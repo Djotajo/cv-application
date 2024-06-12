@@ -15,26 +15,39 @@ function WorkExperienceEdit({
     useState(responsibilities);
   const [jobStartDate, setJobStartDate] = useState(startDate);
   const [jobEndDate, setJobEndDate] = useState(endDate);
+  const [errorMessage, setErrorMessage] = useState("");
 
   function handleEdit(event) {
     event.preventDefault();
-    const updatedItem = {
-      id: id,
-      companyName: companyName,
-      jobPosition: jobPosition,
-      responsibilities: mainResponsibilities,
-      jobStartDate: jobStartDate,
-      jobEndDate: jobEndDate,
-      edit: false,
-    };
-    handleEditItem(id, updatedItem);
-    console.log(updatedItem);
+
+    if (
+      companyName.trim() !== "" &&
+      jobPosition.trim() !== "" &&
+      mainResponsibilities.trim() !== "" &&
+      jobStartDate.trim() !== "" &&
+      jobEndDate.trim() !== ""
+    ) {
+      setErrorMessage("");
+      const updatedItem = {
+        id: id,
+        companyName: companyName,
+        jobPosition: jobPosition,
+        responsibilities: mainResponsibilities,
+        jobStartDate: jobStartDate,
+        jobEndDate: jobEndDate,
+        edit: false,
+      };
+      handleEditItem(id, updatedItem);
+    } else {
+      setErrorMessage("Please fill in all required fields.");
+    }
   }
 
   return (
     <>
       <form action="#">
         <fieldset>
+          <span className="required-note">All fields are required</span>
           <div>
             <label htmlFor="companyName">Company Name </label>
             <input
@@ -43,6 +56,8 @@ function WorkExperienceEdit({
               name="companyName"
               value={companyName}
               onChange={(e) => setCompanyName(e.target.value)}
+              required
+              aria-required="true"
             />
           </div>
 
@@ -54,6 +69,8 @@ function WorkExperienceEdit({
               name="jobPosition"
               value={jobPosition}
               onChange={(e) => setJobPosition(e.target.value)}
+              required
+              aria-required="true"
             />
           </div>
 
@@ -66,6 +83,8 @@ function WorkExperienceEdit({
               cols="50"
               value={mainResponsibilities}
               onChange={(e) => setMainResponsibilities(e.target.value)}
+              required
+              aria-required="true"
             />
           </div>
 
@@ -77,6 +96,8 @@ function WorkExperienceEdit({
               name="jobStartDate"
               value={jobStartDate}
               onChange={(e) => setJobStartDate(e.target.value)}
+              required
+              aria-required="true"
             />
           </div>
 
@@ -88,10 +109,13 @@ function WorkExperienceEdit({
               name="jobEndDate"
               value={jobEndDate}
               onChange={(e) => setJobEndDate(e.target.value)}
+              required
+              aria-required="true"
             />
           </div>
 
           <button onClick={handleEdit}>Submit</button>
+          {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         </fieldset>
       </form>
     </>

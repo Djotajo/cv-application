@@ -42,6 +42,7 @@ function NewLanguage({ languageArray, handleAdd, handleCancel }) {
               onChange={(e) => setLanguage(e.target.value)}
               required
               autoFocus
+              aria-required="true"
             />
           </div>
 
@@ -57,6 +58,7 @@ function NewLanguage({ languageArray, handleAdd, handleCancel }) {
                 onChange={(e) => setLevel(e.target.value)}
                 defaultChecked
                 required
+                aria-required="true"
               />
               <label htmlFor="A1">A1</label>
             </div>

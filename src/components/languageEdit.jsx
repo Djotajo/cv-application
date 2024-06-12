@@ -36,6 +36,7 @@ function LanguageEdit({ language, level, id, handleEditItem }) {
               value={languageName}
               onChange={(e) => setLanguage(e.target.value)}
               required
+              aria-required="true"
             />
           </div>
 
@@ -50,6 +51,7 @@ function LanguageEdit({ language, level, id, handleEditItem }) {
                 value="A1"
                 onChange={(e) => setLevel(e.target.value)}
                 defaultChecked={languageLevel === "A1"}
+                aria-required="true"
               />
               <label htmlFor="A1">A1</label>
             </div>

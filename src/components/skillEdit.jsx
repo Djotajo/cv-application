@@ -35,6 +35,7 @@ function SkillEdit({ skill, id, handleEditItem }) {
               value={skillName}
               onChange={(e) => setSkill(e.target.value)}
               required
+              aria-required="true"
             />
           </div>
 

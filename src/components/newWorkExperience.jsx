@@ -9,6 +9,7 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
   const [responsibilities, setResponsibilities] = useState("");
   const [jobStartDate, setJobStartDate] = useState("");
   const [jobEndDate, setJobEndDate] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   function handleCancelSubmit(event) {
     event.preventDefault();
@@ -18,20 +19,33 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
   function handleSubmit(event) {
     event.preventDefault();
 
-    handleAdd({
-      id: workId,
-      companyName: companyName,
-      jobPosition: jobPosition,
-      responsibilities: responsibilities,
-      jobStartDate: jobStartDate,
-      jobEndDate: jobEndDate,
-    });
+    if (
+      companyName.trim() !== "" &&
+      jobPosition.trim() !== "" &&
+      responsibilities.trim() !== "" &&
+      jobStartDate.trim() !== "" &&
+      jobEndDate.trim() !== ""
+    ) {
+      setErrorMessage("");
+
+      handleAdd({
+        id: workId,
+        companyName: companyName,
+        jobPosition: jobPosition,
+        responsibilities: responsibilities,
+        jobStartDate: jobStartDate,
+        jobEndDate: jobEndDate,
+      });
+    } else {
+      setErrorMessage("Please fill in all required fields.");
+    }
   }
 
   return (
     <>
       <form action="#">
         <fieldset>
+          <span className="required-note">All fields are required</span>
           <div>
             <label htmlFor="companyName">Company Name </label>
             <input
@@ -40,6 +54,8 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
               name="companyName"
               onChange={(e) => setCompanyName(e.target.value)}
               autoFocus
+              required
+              aria-required="true"
             />
           </div>
 
@@ -50,6 +66,8 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
               id="jobPosition"
               name="jobPosition"
               onChange={(e) => setJobPosition(e.target.value)}
+              required
+              aria-required="true"
             />
           </div>
 
@@ -61,6 +79,8 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
               rows="6"
               cols="30"
               onChange={(e) => setResponsibilities(e.target.value)}
+              required
+              aria-required="true"
             />
           </div>
 
@@ -71,6 +91,8 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
               id="jobStartDate"
               name="jobStartDate"
               onChange={(e) => setJobStartDate(e.target.value)}
+              required
+              aria-required="true"
             />
           </div>
 
@@ -81,11 +103,14 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
               id="jobEndDate"
               name="jobEndDate"
               onChange={(e) => setJobEndDate(e.target.value)}
+              required
+              aria-required="true"
             />
           </div>
 
           <button onClick={handleSubmit}>Submit</button>
           <button onClick={handleCancelSubmit}>Cancel</button>
+          {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         </fieldset>
       </form>
     </>
