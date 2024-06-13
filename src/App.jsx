@@ -37,14 +37,14 @@ function App() {
       schoolName: "University of Banja Luka",
       title: "Bachelor of Law",
       start: "2024-01",
-      end: "2024-01",
+      end: "2024-12",
     },
     {
       id: "4753f1e0-8d28-4013-97ff-5a9016e6e4b1",
       schoolName: "Kazan Federal University",
       title: "Master of Laws",
       start: "2024-01",
-      end: "2024-01",
+      end: "2024-12",
     },
   ]);
 

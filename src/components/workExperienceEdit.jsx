@@ -15,7 +15,17 @@ function WorkExperienceEdit({
     useState(responsibilities);
   const [jobStartDate, setJobStartDate] = useState(startDate);
   const [jobEndDate, setJobEndDate] = useState(endDate);
+  const [ongoing, setOngoing] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const handleCheckboxChange = (e) => {
+    setOngoing(e.target.checked);
+    if (e.target.checked) {
+      setJobEndDate("ongoing");
+    } else {
+      setJobEndDate(endDate);
+    }
+  };
 
   function handleEdit(event) {
     event.preventDefault();
@@ -102,12 +112,25 @@ function WorkExperienceEdit({
           </div>
 
           <div>
+            <label htmlFor="ongoingCheckbox">Ongoing:</label>
+            <input
+              type="checkbox"
+              id="ongoingCheckbox"
+              checked={ongoing}
+              onChange={handleCheckboxChange}
+            />
+          </div>
+
+          <div
+            id="studyDateEndContainer"
+            style={{ display: ongoing ? "none" : "flex" }}
+          >
             <label htmlFor="jobEndDate">End of Work </label>
             <input
               type="month"
               id="jobEndDate"
               name="jobEndDate"
-              value={jobEndDate}
+              value={jobEndDate === "ongoing" ? "" : jobEndDate}
               onChange={(e) => setJobEndDate(e.target.value)}
               required
               aria-required="true"

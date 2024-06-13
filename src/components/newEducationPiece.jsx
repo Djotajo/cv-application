@@ -17,7 +17,6 @@ function NewEducationPiece({ educationArray, handleAdd, handleCancel }) {
     } else {
       setEndDate("");
     }
-    console.log(ongoing);
   };
 
   function handleCancelSubmit(event) {
@@ -102,7 +101,7 @@ function NewEducationPiece({ educationArray, handleAdd, handleCancel }) {
 
           <div
             id="studyDateEndContainer"
-            style={{ display: ongoing ? "none" : "block" }}
+            style={{ display: ongoing ? "none" : "flex" }}
           >
             <label htmlFor="studyDateEnd">End of Studies </label>
             <input

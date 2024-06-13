@@ -7,13 +7,14 @@ function DisplayEducationItem({ name, title, startDate, endDate, id }) {
   const dateStart = new Date(startYear, startMonth - 1);
   const formattedDateStart = dateStart.toLocaleDateString("en-GB", dateOptions);
 
-  const [year, month] = endDate.split("-");
-  const dateEnd = new Date(year, month - 1);
-
   let formattedDateEnd;
-  endDate === "ongoing"
-    ? (formattedDateEnd = "ongoing")
-    : dateEnd.toLocaleDateString("en-GB", dateOptions);
+  if (endDate === "ongoing") {
+    formattedDateEnd = "ongoing";
+  } else {
+    const [year, month] = endDate.split("-");
+    const dateEnd = new Date(year, month - 1);
+    formattedDateEnd = dateEnd.toLocaleDateString("en-GB", dateOptions);
+  }
   // const formattedDateEnd = dateEnd.toLocaleDateString("en-GB", dateOptions);
 
   return (

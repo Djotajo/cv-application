@@ -12,7 +12,17 @@ function EducationPieceEdit({
   const [titleEarned, setTitle] = useState(title);
   const [start, setStartDate] = useState(startDate);
   const [end, setEndDate] = useState(endDate);
+  const [ongoing, setOngoing] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const handleCheckboxChange = (e) => {
+    setOngoing(e.target.checked);
+    if (e.target.checked) {
+      setEndDate("ongoing");
+    } else {
+      setEndDate(endDate);
+    }
+  };
 
   function handleEdit(event) {
     event.preventDefault();
@@ -84,12 +94,25 @@ function EducationPieceEdit({
           </div>
 
           <div>
+            <label htmlFor="ongoingCheckbox">Ongoing:</label>
+            <input
+              type="checkbox"
+              id="ongoingCheckbox"
+              checked={ongoing}
+              onChange={handleCheckboxChange}
+            />
+          </div>
+
+          <div
+            id="studyDateEndContainer"
+            style={{ display: ongoing ? "none" : "flex" }}
+          >
             <label htmlFor="studyDateEnd">End of Studies </label>
             <input
               type="month"
               id="studyDateEnd"
               name="studyDateEnd"
-              value={end}
+              value={end === "ongoing" ? "" : end}
               onChange={(e) => setEndDate(e.target.value)}
               required
               aria-required="true"

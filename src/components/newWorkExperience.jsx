@@ -9,7 +9,17 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
   const [responsibilities, setResponsibilities] = useState("");
   const [jobStartDate, setJobStartDate] = useState("");
   const [jobEndDate, setJobEndDate] = useState("");
+  const [ongoing, setOngoing] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const handleCheckboxChange = (e) => {
+    setOngoing(e.target.checked);
+    if (e.target.checked) {
+      jobEndDate("ongoing");
+    } else {
+      jobEndDate("");
+    }
+  };
 
   function handleCancelSubmit(event) {
     event.preventDefault();
@@ -24,7 +34,7 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
       jobPosition.trim() !== "" &&
       responsibilities.trim() !== "" &&
       jobStartDate.trim() !== "" &&
-      jobEndDate.trim() !== ""
+      (jobEndDate.trim() !== "" || ongoing === true)
     ) {
       setErrorMessage("");
 
@@ -97,6 +107,19 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
           </div>
 
           <div>
+            <label htmlFor="ongoingCheckbox">Ongoing:</label>
+            <input
+              type="checkbox"
+              id="ongoingCheckbox"
+              checked={ongoing}
+              onChange={handleCheckboxChange}
+            />
+          </div>
+
+          <div
+            id="studyDateEndContainer"
+            style={{ display: ongoing ? "none" : "flex" }}
+          >
             <label htmlFor="jobEndDate">End of Work </label>
             <input
               type="month"
