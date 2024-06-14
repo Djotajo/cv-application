@@ -1,10 +1,11 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
   const workId = uuidv4();
   const [companyName, setCompanyName] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
   const [jobPosition, setJobPosition] = useState("");
   const [responsibilities, setResponsibilities] = useState("");
   const [jobStartDate, setJobStartDate] = useState("");
@@ -15,9 +16,9 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
   const handleCheckboxChange = (e) => {
     setOngoing(e.target.checked);
     if (e.target.checked) {
-      jobEndDate("ongoing");
+      setJobEndDate("ongoing");
     } else {
-      jobEndDate("");
+      setJobEndDate("");
     }
   };
 
@@ -31,6 +32,8 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
 
     if (
       companyName.trim() !== "" &&
+      city.trim() !== "" &&
+      country.trim() !== "" &&
       jobPosition.trim() !== "" &&
       responsibilities.trim() !== "" &&
       jobStartDate.trim() !== "" &&
@@ -41,6 +44,8 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
       handleAdd({
         id: workId,
         companyName: companyName,
+        city: city,
+        country: country,
         jobPosition: jobPosition,
         responsibilities: responsibilities,
         jobStartDate: jobStartDate,
@@ -64,6 +69,30 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
               name="companyName"
               onChange={(e) => setCompanyName(e.target.value)}
               autoFocus
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="city">City </label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              onChange={(e) => setCity(e.target.value)}
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="country">Country </label>
+            <input
+              type="text"
+              id="country"
+              name="country"
+              onChange={(e) => setCountry(e.target.value)}
               required
               aria-required="true"
             />

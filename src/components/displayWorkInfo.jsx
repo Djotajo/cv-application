@@ -8,6 +8,8 @@ function DisplayWorkInfo({ array }) {
     item.edit === true ? null : (
       <DisplayWorkItem
         company={item.companyName}
+        city={item.city}
+        country={item.country}
         position={item.jobPosition}
         responsibilities={item.responsibilities}
         startDate={item.jobStartDate}

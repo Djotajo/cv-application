@@ -40,13 +40,3 @@ function WorkExperienceCompleted({
 }
 
 export default WorkExperienceCompleted;
-
-{
-  /* <p>Company Name - {company}</p>
-<p>Position - {position}</p>
-<p>Main responsibilities - {responsibilities}</p>
-<p>Start of Work - {startDate}</p>
-<p>End of Work - {endDate}</p>
-<button onClick={handleEdit}>Edit</button>
-<button onClick={handleRemove}>Remove</button> */
-}

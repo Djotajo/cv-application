@@ -4,6 +4,8 @@ import ResponsibilityItem from "./responsiblityItem";
 
 function DisplayWorkItem({
   company,
+  city,
+  country,
   position,
   responsibilities,
   startDate,
@@ -38,6 +40,9 @@ function DisplayWorkItem({
       <li className="itemDisplay">
         <p>
           {formattedDateStart} - {formattedDateEnd}
+        </p>
+        <p>
+          {city}, {country}
         </p>
         <h3>{position}</h3>
         <p className="companyName">{company}</p>

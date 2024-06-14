@@ -2,6 +2,8 @@ import { useState } from "react";
 
 function WorkExperienceEdit({
   company,
+  city,
+  country,
   position,
   responsibilities,
   startDate,
@@ -10,6 +12,8 @@ function WorkExperienceEdit({
   handleEditItem,
 }) {
   const [companyName, setCompanyName] = useState(company);
+  const [cityName, setCity] = useState(city);
+  const [countryName, setCountry] = useState(country);
   const [jobPosition, setJobPosition] = useState(position);
   const [mainResponsibilities, setMainResponsibilities] =
     useState(responsibilities);
@@ -32,6 +36,8 @@ function WorkExperienceEdit({
 
     if (
       companyName.trim() !== "" &&
+      cityName.trim() !== "" &&
+      countryName.trim() !== "" &&
       jobPosition.trim() !== "" &&
       mainResponsibilities.trim() !== "" &&
       jobStartDate.trim() !== "" &&
@@ -41,6 +47,8 @@ function WorkExperienceEdit({
       const updatedItem = {
         id: id,
         companyName: companyName,
+        cityName: cityName,
+        countryName: countryName,
         jobPosition: jobPosition,
         responsibilities: mainResponsibilities,
         jobStartDate: jobStartDate,
@@ -66,6 +74,32 @@ function WorkExperienceEdit({
               name="companyName"
               value={companyName}
               onChange={(e) => setCompanyName(e.target.value)}
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="city">City </label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              value={cityName}
+              onChange={(e) => setCity(e.target.value)}
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="country">Country </label>
+            <input
+              type="text"
+              id="country"
+              name="country"
+              value={countryName}
+              onChange={(e) => setCountry(e.target.value)}
               required
               aria-required="true"
             />

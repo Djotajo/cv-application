@@ -31,6 +31,8 @@ function WorkInfo({
       piece.edit === true ? (
         <WorkExperienceEdit
           company={piece.companyName}
+          city={piece.city}
+          country={piece.country}
           position={piece.jobPosition}
           responsibilities={piece.responsibilities}
           startDate={piece.jobStartDate}

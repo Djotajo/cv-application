@@ -85,6 +85,8 @@ function App() {
     {
       id: "b7bba7c3-0597-454d-9522-6fd9c1d2117a",
       companyName: "Visi privredni sud",
+      city: "Banja Luka",
+      country: "BiH",
       jobPosition: "Sudski pripravnik",
       responsibilities:
         "sacinjavanje dokumenata\nnosanje papira\npisanje presuda",
@@ -94,6 +96,8 @@ function App() {
     {
       id: "e4396060-68f7-482c-b5de-ad5df55e1e6a",
       companyName: "Univerzitet u Banjoj Luci",
+      city: "Banja Luka",
+      country: "BiH",
       jobPosition: "Visi strucni saradnik za razmjenu studenata i osoblja",
       responsibilities:
         "konkursi za razmjene\npromocija putovanja\nugovori o saradnji",
