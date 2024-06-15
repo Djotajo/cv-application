@@ -224,13 +224,13 @@ function App() {
   //   setWorkArray(workArray);
   // }
 
-  function moveItemUp(id) {
-    let position = workArray.findIndex((item) => item.id === id);
+  function moveItemUp(array, setArray, id) {
+    let position = array.findIndex((item) => item.id === id);
     if (position !== 0 && position !== -1) {
-      let newArray = [...workArray];
+      let newArray = [...array];
       let [movedItem] = newArray.splice(position, 1);
       newArray.splice(position - 1, 0, movedItem);
-      setWorkArray(newArray);
+      setArray(newArray);
     }
   }
 
@@ -296,7 +296,10 @@ function App() {
             {" "}
             <EducationInfo
               educationArray={educationArray}
+              setEducationArray={setEducationArray}
               handleEducationArrayChange={handleEducationArrayChange}
+              handleMoveItemUp={moveItemUp}
+              handleMoveItemDown={moveItemDown}
               handleRemoveEducationItem={handleRemoveEducationItem}
               handleEditEducationItem={handleEditEducationItem}
               handleSubmitEditEducationItem={handleSubmitEditEducationItem}

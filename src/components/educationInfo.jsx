@@ -5,7 +5,10 @@ import EducationPieceEdit from "./educationPieceEdit";
 
 function EducationInfo({
   educationArray,
+  setEducationArray,
   handleEducationArrayChange,
+  handleMoveItemUp,
+  handleMoveItemDown,
   handleRemoveEducationItem,
   handleEditEducationItem,
   handleSubmitEditEducationItem,
@@ -49,6 +52,10 @@ function EducationInfo({
           endDate={piece.end}
           key={piece.id}
           id={piece.id}
+          educationArray={educationArray}
+          setEducationArray={setEducationArray}
+          handleMoveItemUp={handleMoveItemUp}
+          handleMoveItemDown={handleMoveItemDown}
           handleEditItem={handleEditEducationItem}
           handleRemoveItem={handleRemoveEducationItem}
         />

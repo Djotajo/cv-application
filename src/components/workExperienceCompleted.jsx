@@ -16,10 +16,10 @@ function WorkExperienceCompleted({
 }) {
   const [edit, setEdit] = useState(false);
 
-  function moveUp(event) {
+  function moveUp(event, id) {
     event.preventDefault();
 
-    handleMoveItemUp(id);
+    handleMoveItemUp(workArray, setWorkArray, id);
   }
 
   function moveDown(event, id) {
@@ -46,11 +46,14 @@ function WorkExperienceCompleted({
         <p>
           {company} - {position}
         </p>
-        <button className="moveUpButton" onClick={moveUp}>
+        <button
+          className="moveItemButton"
+          onClick={(event) => moveUp(event, id)}
+        >
           Go up
         </button>
         <button
-          className="moveUpButton"
+          className="moveItemButton"
           onClick={(event) => moveDown(event, id)}
         >
           Go down
