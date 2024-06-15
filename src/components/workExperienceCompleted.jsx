@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Icon from "@mdi/react";
+import { mdiArrowDownBold } from "@mdi/js";
+import { mdiArrowUpBold } from "@mdi/js";
 
 function WorkExperienceCompleted({
   company,
@@ -43,21 +46,26 @@ function WorkExperienceCompleted({
   return (
     <>
       <div className="workItem">
-        <p>
-          {company} - {position}
-        </p>
-        <button
-          className="moveItemButton"
-          onClick={(event) => moveUp(event, id)}
-        >
-          Go up
-        </button>
-        <button
-          className="moveItemButton"
-          onClick={(event) => moveDown(event, id)}
-        >
-          Go down
-        </button>
+        <div className="itemContent">
+          <p>
+            {company} - {position}{" "}
+          </p>
+          <div className="itemContentButtons">
+            <Icon
+              path={mdiArrowUpBold}
+              size={1}
+              onClick={(event) => moveUp(event, id)}
+              className="moveItemIcon"
+            />
+            <Icon
+              path={mdiArrowDownBold}
+              size={1}
+              onClick={(event) => moveDown(event, id)}
+              className="moveItemIcon"
+            />
+          </div>
+        </div>
+
         <div className="workItemButtons">
           <button onClick={handleEdit}>Edit</button>
           <button onClick={handleRemove}>Remove</button>

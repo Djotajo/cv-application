@@ -329,6 +329,23 @@ ul ul {
   display: none;
 }
 
+.moveItemIcon {
+  transition: transform 0.2s ease, color 0.2s ease;
+  color: black; /* Initial color */
+}
+
+.moveItemIcon:hover {
+  transform: scale(1.1); /* Slightly increase the size */
+  color: #2c3e50; /* Change to a different color on hover (DodgerBlue in this case) */
+}
+
+.itemContent {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
 @page {
   size: auto;
   margin: 0mm;
@@ -506,7 +523,7 @@ form button:hover,
 }
 
 .inputSection p {
-  margin-bottom: 1em;
+  /* margin-bottom: 1em; */
   font-size: 1em;
   font-weight: 500;
 }
