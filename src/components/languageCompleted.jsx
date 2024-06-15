@@ -24,7 +24,7 @@ function LanguageCompleted({
   return (
     <>
       <div className="eduItem">
-        <p>
+        <p className="itemParagraph">
           {language} - {level}
         </p>
         <div className="eduItemButtons">

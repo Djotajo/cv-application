@@ -11,7 +11,6 @@ import DisplayContactInfo from "./components/displayContactInfo";
 import DisplayLanguageInfo from "./components/displayLanguageInfo";
 import DisplaySkillInfo from "./components/displaySkillInfo";
 import FileInput from "./components/fileInput";
-import ImageDisplay from "./components/imageDisplay";
 import Icon from "@mdi/react";
 import { mdiPlusCircleOutline } from "@mdi/js";
 import { mdiPrinterOutline } from "@mdi/js";
@@ -20,31 +19,38 @@ import "./normalize.css";
 import "./App.css";
 
 function App() {
-  const [firstName, setFirstName] = useState("Djordje");
-  const [lastName, setLastName] = useState("Kenjalo");
-  const [title, setTitle] = useState("Senior Associate");
-  const [city, setCity] = useState("Banja Luka");
-  const [country, setCountry] = useState("Bosnia and Herzegovina");
-  const [email, setEmail] = useState("djordjekenjalo@gmail.com");
-  const [phone, setPhone] = useState("+38765456850");
+  const [firstName, setFirstName] = useState("Yoshii");
+  const [lastName, setLastName] = useState("Toranaga");
+  const [title, setTitle] = useState("Lord");
+  const [city, setCity] = useState("Edo");
+  const [country, setCountry] = useState("Japan");
+  const [email, setEmail] = useState("lordyoshii@gmail.com");
+  const [phone, setPhone] = useState("+81 234 567 89");
   const [page, setPage] = useState(
-    "https://ba.linkedin.com/in/djordje-kenjalo-12b874b5"
+    "https://shogun.fandom.com/wiki/Yoshii_Toranaga"
   );
 
   const [educationArray, setEducationArray] = useState([
     {
-      id: "06b95b8b-fe78-4752-9913-f35644881863",
-      schoolName: "University of Banja Luka",
-      title: "Bachelor of Law",
-      start: "2024-01",
-      end: "2024-12",
+      id: "4753f1e0-8d28-4013-97ff-5a9016e6e4b1",
+      schoolName: "Warrior's Council of Edo Castle",
+      title: "Leadership and Diplomacy",
+      start: "1573-02",
+      end: "1596-09",
     },
     {
-      id: "4753f1e0-8d28-4013-97ff-5a9016e6e4b1",
-      schoolName: "Kazan Federal University",
-      title: "Master of Laws",
-      start: "2024-01",
-      end: "2024-12",
+      id: "06b95b8b-fe78-4752-9913-f35644881864",
+      schoolName: "Kyoto Imperial University",
+      title: "Legal Codes and Political Philosophy",
+      start: "1568-10",
+      end: "1572-07",
+    },
+    {
+      id: "06b95b8b-fe78-4752-9913-f35644881863",
+      schoolName: "Tokugawa Clan Academy",
+      title: "Confucian Classics and Ethics",
+      start: "1560-10",
+      end: "1568-06",
     },
   ]);
 
@@ -57,7 +63,6 @@ function App() {
       ...prevEducationArray,
       newObject,
     ]);
-    // addItem();
     console.log(educationArray);
   }
 
@@ -83,33 +88,42 @@ function App() {
 
   const [workArray, setWorkArray] = useState([
     {
-      id: "b7bba7c3-0597-454d-9522-6fd9c1d2117a",
-      companyName: "Visi privredni sud",
-      city: "Banja Luka",
-      country: "BiH",
-      jobPosition: "Sudski pripravnik",
+      id: "e4396060-68f7-482c-b5de-ad5df55e1e6b",
+      companyName: "Shogunate of Japan",
+      city: "Edo (Tokyo)",
+      country: "Japan",
+      jobPosition: "Shogun",
       responsibilities:
-        "sacinjavanje dokumenata\nnosanje papira\npisanje presuda",
-      jobStartDate: "2024-01",
-      jobEndDate: "2024-03",
+        "Ruled as the military dictator of Japan, overseeing the administration, military affairs, and policies of the Tokugawa Shogunate.",
+      jobStartDate: "1603-03",
+      jobEndDate: "1605-04",
     },
     {
       id: "e4396060-68f7-482c-b5de-ad5df55e1e6a",
-      companyName: "Univerzitet u Banjoj Luci",
-      city: "Banja Luka",
-      country: "BiH",
-      jobPosition: "Visi strucni saradnik za razmjenu studenata i osoblja",
+      companyName: "Tokugawa Clan",
+      city: "Okazaki",
+      country: "Japan",
+      jobPosition: "Chief Advisor to the Daimyo",
       responsibilities:
-        "konkursi za razmjene\npromocija putovanja\nugovori o saradnji",
-      jobStartDate: "2024-01",
-      jobEndDate: "2024-04",
+        "Advised on matters of statecraft, diplomacy, and governance, negotiated alliances, and maintained political stability.",
+      jobStartDate: "1600-05",
+      jobEndDate: "1603-03",
+    },
+    {
+      id: "b7bba7c3-0597-454d-9522-6fd9c1d2117a",
+      companyName: "Tokugawa Clan",
+      city: "Okazaki",
+      country: "Japan",
+      jobPosition: "General of Tokugawa Army",
+      responsibilities:
+        "Led military campaigns\n Strategized battles\n Ensured the defense and expansion of Tokugawa territories.",
+      jobStartDate: "1573-03",
+      jobEndDate: "1600-04",
     },
   ]);
 
   function handleWorkArrayChange(newObject) {
     setWorkArray((prevWorkArray) => [...prevWorkArray, newObject]);
-    // addItem();
-    // console.log(educationArray);
   }
 
   function handleRemoveWorkItem(itemId) {
@@ -135,14 +149,18 @@ function App() {
   const [languageArray, setLanguageArray] = useState([
     {
       id: "06b95b8s-fe78-4752-9913-f35644881863",
-      language: "German",
-      level: "B1",
+      language: "Japanese",
+      level: "Native language",
+    },
+    {
+      id: "06b95b8s-fe78-4752-9913-f35644881865",
+      language: "English",
+      level: "A1",
     },
   ]);
 
   function handleLanguageArrayChange(newObject) {
     setLanguageArray((prevLanguageArray) => [...prevLanguageArray, newObject]);
-    // addItem();
     console.log(languageArray);
   }
 
@@ -168,8 +186,24 @@ function App() {
 
   const [skillArray, setSkillArray] = useState([
     {
+      id: "06b95b8s-fe78-4752-9913-f35644881861",
+      skill: "Leadership",
+    },
+    {
+      id: "06b95b8s-fe78-4752-9913-f35644881862",
+      skill: "Problem-Solving",
+    },
+    {
       id: "06b95b8s-fe78-4752-9913-f35644881863",
-      skill: "JavaScript",
+      skill: "Networking",
+    },
+    {
+      id: "06b95b8s-fe78-4752-9913-f35644881864",
+      skill: "Attention to Detail",
+    },
+    {
+      id: "06b95b8s-fe78-4752-9913-f35644881865",
+      skill: "Conflict Resolution",
     },
   ]);
 
@@ -214,16 +248,6 @@ function App() {
     reader.readAsDataURL(selectedFile);
   };
 
-  // function moveItemUp(id) {
-  //   let position = workArray.findIndex((item) => item.id === id);
-  //   let object = workArray[position];
-  //   if (position !== 0) {
-  //     workArray.splice(position - 1, 0, object);
-  //     workArray.splice(position + 1, 1);
-  //   }
-  //   setWorkArray(workArray);
-  // }
-
   function moveItemUp(array, setArray, id) {
     let position = array.findIndex((item) => item.id === id);
     if (position !== 0 && position !== -1) {
@@ -258,7 +282,7 @@ function App() {
             {" "}
             <div className="">
               <label htmlFor="addProfilePicture" className="file-input-label">
-                <Icon path={mdiPlusCircleOutline} size={1} />{" "}
+                {/* <Icon path={mdiPlusCircleOutline} size={1} />{" "} */}
                 <p>Upload your profile picture</p>
               </label>
               <div id="profilePicInputWrap">

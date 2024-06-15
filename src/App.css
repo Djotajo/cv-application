@@ -464,6 +464,10 @@ form button:hover,
   font-weight: 500;
 }
 
+.itemParagraph {
+  padding-bottom: 1em;
+}
+
 @media (max-width: 1000px) {
   #root {
     width: 90%;

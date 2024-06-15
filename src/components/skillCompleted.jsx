@@ -18,7 +18,7 @@ function SkillCompleted({ skill, id, handleEditItem, handleRemoveItem }) {
   return (
     <>
       <div className="eduItem">
-        <p>{skill}</p>
+        <p className="itemParagraph">{skill}</p>
         <div className="eduItemButtons">
           <button onClick={handleEdit}>Edit</button>
           <button onClick={handleRemove}>Remove</button>
