@@ -42,10 +42,6 @@ form {
   flex-direction: column;
 }
 
-div {
-  /* border: 1px solid black; */
-}
-
 p {
   margin: 0;
 }
@@ -55,22 +51,14 @@ button {
 }
 
 .required-note {
-  color: #2980b9; /* Medium Blue, matching your general color scheme */
-  margin-left: 0.3em; /* Adjust spacing as needed */
+  color: #2980b9;
+  margin-left: 0.3em;
 }
-/* .container > section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-} */
 
 fieldset {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   gap: 1em;
-  /* border: none; */
 }
 
 fieldset label {
@@ -95,7 +83,6 @@ textarea {
 .gridItemText {
   padding: 5px;
   color: #34495e;
-  /* border: 1px solid grey; */
 }
 
 .gridItemInput {
@@ -104,11 +91,9 @@ textarea {
 }
 
 .container {
-  /* border: 1px solid black; */
   width: 100%;
   max-width: 50%;
   background-color: white;
-  /* margin-top: 1em; */
 }
 
 .left {
@@ -134,10 +119,9 @@ textarea {
 }
 
 .displayGeneralInfo h1 {
-  text-overflow: ellipsis; /* Display an ellipsis (...) to indicate overflow */
+  text-overflow: ellipsis;
   overflow-wrap: break-word;
   vertical-align: baseline;
-  /* display: flex; */
   align-items: center;
   word-break: break-all;
   margin-bottom: 0;
@@ -190,13 +174,11 @@ textarea {
   flex-direction: row;
   justify-content: stretch;
   align-items: center;
-  /* border-bottom: 1px solid grey; */
   box-shadow: 0px 5px 5px grey;
 }
 
 .personalInfo,
 .contactInfo {
-  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -212,45 +194,23 @@ textarea {
 
 .personalInfo > *,
 .contactInfo > * {
-  text-overflow: ellipsis; /* Display an ellipsis (...) to indicate overflow */
+  text-overflow: ellipsis;
   overflow-wrap: break-word;
   vertical-align: baseline;
   display: flex;
   align-items: center;
 }
 
-/* .personalInfo h1 {
-  font-size: calc(3em + 2vmin);
-} */
-
 .contactInfo {
   width: 45%;
   max-width: 45%;
 }
-
-/* section label {
-  display: flex;
-  justify-content: space-between;
-  padding: 5px;
-} */
-/* 
-section p,
-section label {
-  width: 70%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-content: center;
-  justify-content: center;
-  padding: 5px;
-}
- */
 
 .eduItem,
 .workItem {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: start; */
   padding: 1em;
   width: 100%;
 }
@@ -294,8 +254,6 @@ section label {
   color: #2c3e50;
 }
 
-/* , #3c404326 0 2px 6px 2px */
-
 .displayEducationInfo li {
   text-align: start;
 }
@@ -331,12 +289,12 @@ ul ul {
 
 .moveItemIcon {
   transition: transform 0.2s ease, color 0.2s ease;
-  color: black; /* Initial color */
+  color: black;
 }
 
 .moveItemIcon:hover {
-  transform: scale(1.1); /* Slightly increase the size */
-  color: #2c3e50; /* Change to a different color on hover (DodgerBlue in this case) */
+  transform: scale(1.1);
+  color: #2c3e50;
 }
 
 .itemContent {
@@ -362,13 +320,7 @@ ul ul {
 }
 
 .profilePicture {
-  /* max-width: 100%; */
   max-height: 100%;
-  /* object-fit: fill; */
-  /* object-fit: contain; */
-  /* object-fit: cover; */
-  /* object-fit: none; */
-  /* object-fit: scale-down; */
 }
 
 #profilePicInputWrap {
@@ -378,8 +330,8 @@ ul ul {
 .file-input-label {
   display: inline-block;
   padding: 10px 15px;
-  background-color: #2980b9; /* Medium Blue, same as accent color */
-  color: #ffffff; /* White text color */
+  background-color: #2980b9;
+  color: #ffffff;
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
@@ -388,7 +340,7 @@ ul ul {
 }
 
 .file-input-label:hover {
-  background-color: #2c3e50; /* Dark Blue, slightly darker on hover */
+  background-color: #2c3e50;
 }
 
 .file-input-label p {
@@ -397,13 +349,12 @@ ul ul {
   margin: 0;
 }
 
-/* Styling for file input notice */
 .file-input-notice {
-  display: flex; /* Use flex to control alignment */
-  align-items: center; /* Center align items vertically */
+  display: flex;
+  align-items: center;
   padding: 10px;
-  background-color: #ecf0f1; /* Light Gray */
-  border: 1px solid #bdc3c7; /* Light Gray border */
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
   border-radius: 5px;
 }
 
@@ -411,12 +362,10 @@ ul ul {
   margin: 5px 0;
 }
 
-/* File input container */
 #profilePicInputWrap {
-  margin-bottom: 10px; /* Space between file input and next element */
+  margin-bottom: 10px;
 }
 
-/* Icon styling */
 .file-input-label svg {
   vertical-align: middle;
   margin-right: 5px;
@@ -437,40 +386,28 @@ ul ul {
 
 #printButton {
   display: none;
-  /* position: sticky;
-  top: 20px;
-  margin-left: auto;
-  right: 50px;
-  z-index: 1; */
-  /* align-self: baseline; */
 }
 
 form,
 .inputSection {
-  width: 100%; /* Adjust to your layout */
+  width: 100%;
   margin: auto;
-  /* padding: 20px; */
   padding-bottom: 0;
   background-color: #ffffff;
-  /* border: 1px solid #e0e0e0; */
-  /* border-radius: 5px; */
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 
 form fieldset,
 .inputSection fieldset {
-  border: 1px solid #bdc3c7; /* Light Gray border */
+  border: 1px solid #bdc3c7;
   border-radius: 5px;
   padding: 20px;
-  /* margin-bottom: 20px; */
 }
 
 form legend,
 .inputSection legend {
   font-size: 1.5em;
   font-weight: bold;
-  color: #2c3e50; /* Dark Blue */
-  /* margin-bottom: 10px; */
+  color: #2c3e50;
 }
 
 legend h2 {
@@ -482,15 +419,15 @@ form label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
-  color: #34495e; /* Dark Gray */
+  color: #34495e;
 }
 
 form input[type="text"],
 form input[type="email"] {
-  width: calc(100% - 12px); /* Adjust for input padding */
+  width: calc(100% - 12px);
   padding: 10px;
   font-size: 1em;
-  border: 1px solid #bdc3c7; /* Light Gray */
+  border: 1px solid #bdc3c7;
   border-radius: 3px;
   margin-bottom: 10px;
   transition: border-color 0.3s ease;
@@ -499,15 +436,15 @@ form input[type="email"] {
 form input[type="text"]:focus,
 form input[type="email"]:focus {
   outline: none;
-  border-color: #2980b9; /* Medium Blue on focus */
+  border-color: #2980b9;
 }
 
 form button,
 .inputSection button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #2980b9; /* Medium Blue */
-  color: #ffffff; /* White text color */
+  background-color: #2980b9;
+  color: #ffffff;
   font-size: 1em;
   font-weight: bold;
   text-align: center;
@@ -519,11 +456,10 @@ form button,
 
 form button:hover,
 .inputSection button:hover {
-  background-color: #2c3e50; /* Dark Blue on hover */
+  background-color: #2c3e50;
 }
 
 .inputSection p {
-  /* margin-bottom: 1em; */
   font-size: 1em;
   font-weight: 500;
 }
@@ -556,10 +492,6 @@ form button:hover,
     bottom: 1em;
     right: unset;
     margin-left: auto;
-    /* right: 0;
-    margin-left: 0;
-    width: 100%;
-    margin-right: 0; */
     z-index: 0;
     background-color: white;
     border: 1px solid grey;
@@ -570,7 +502,6 @@ form button:hover,
 }
 
 @media print {
-  /* Reset margins and padding for the entire document */
   #root,
   body,
   html {
@@ -622,7 +553,7 @@ form button:hover,
   header,
   footer {
     page-break-after: always;
-    display: block; /* Ensure they appear correctly */
+    display: block;
   }
 
   main,
