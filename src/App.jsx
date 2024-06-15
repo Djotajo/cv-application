@@ -214,6 +214,36 @@ function App() {
     reader.readAsDataURL(selectedFile);
   };
 
+  // function moveItemUp(id) {
+  //   let position = workArray.findIndex((item) => item.id === id);
+  //   let object = workArray[position];
+  //   if (position !== 0) {
+  //     workArray.splice(position - 1, 0, object);
+  //     workArray.splice(position + 1, 1);
+  //   }
+  //   setWorkArray(workArray);
+  // }
+
+  function moveItemUp(id) {
+    let position = workArray.findIndex((item) => item.id === id);
+    if (position !== 0 && position !== -1) {
+      let newArray = [...workArray];
+      let [movedItem] = newArray.splice(position, 1);
+      newArray.splice(position - 1, 0, movedItem);
+      setWorkArray(newArray);
+    }
+  }
+
+  function moveItemDown(array, setArray, id) {
+    let position = array.findIndex((item) => item.id === id);
+    if (position !== array.length - 1 && position !== -1) {
+      let newArray = [...array];
+      let [movedItem] = newArray.splice(position, 1);
+      newArray.splice(position + 1, 0, movedItem);
+      setArray(newArray);
+    }
+  }
+
   return (
     <>
       <label htmlFor="printButton" className="printButtonLabel noPrint">
@@ -277,7 +307,10 @@ function App() {
             {" "}
             <WorkInfo
               workArray={workArray}
+              setWorkArray={setWorkArray}
               handleWorkArrayChange={handleWorkArrayChange}
+              handleMoveItemUp={moveItemUp}
+              handleMoveItemDown={moveItemDown}
               handleRemoveWorkItem={handleRemoveWorkItem}
               handleEditWorkItem={handleEditWorkItem}
               handleSubmitEditWorkItem={handleSubmitEditWorkItem}

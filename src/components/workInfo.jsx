@@ -5,7 +5,10 @@ import WorkExperienceEdit from "./workExperienceEdit";
 
 function WorkInfo({
   workArray,
+  setWorkArray,
   handleWorkArrayChange,
+  handleMoveItemUp,
+  handleMoveItemDown,
   handleRemoveWorkItem,
   handleEditWorkItem,
   handleSubmitEditWorkItem,
@@ -50,6 +53,10 @@ function WorkInfo({
           endDate={piece.jobEndDate}
           key={piece.id}
           id={piece.id}
+          workArray={workArray}
+          setWorkArray={setWorkArray}
+          handleMoveItemUp={handleMoveItemUp}
+          handleMoveItemDown={handleMoveItemDown}
           handleEditItem={handleEditWorkItem}
           handleRemoveItem={handleRemoveWorkItem}
         />
