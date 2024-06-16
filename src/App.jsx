@@ -12,7 +12,6 @@ import DisplayLanguageInfo from "./components/displayLanguageInfo";
 import DisplaySkillInfo from "./components/displaySkillInfo";
 import FileInput from "./components/fileInput";
 import Icon from "@mdi/react";
-import { mdiPlusCircleOutline } from "@mdi/js";
 import { mdiPrinterOutline } from "@mdi/js";
 
 import "./normalize.css";
@@ -56,14 +55,6 @@ function App() {
 
   function handleInputChange(event, setter) {
     setter(event.target.value);
-  }
-
-  function handleEducationArrayChange(newObject) {
-    setEducationArray((prevEducationArray) => [
-      ...prevEducationArray,
-      newObject,
-    ]);
-    console.log(educationArray);
   }
 
   function handleRemoveEducationItem(itemId) {
@@ -122,10 +113,6 @@ function App() {
     },
   ]);
 
-  function handleWorkArrayChange(newObject) {
-    setWorkArray((prevWorkArray) => [...prevWorkArray, newObject]);
-  }
-
   function handleRemoveWorkItem(itemId) {
     setWorkArray(workArray.filter((item) => item.id !== itemId));
   }
@@ -158,11 +145,6 @@ function App() {
       level: "A1",
     },
   ]);
-
-  function handleLanguageArrayChange(newObject) {
-    setLanguageArray((prevLanguageArray) => [...prevLanguageArray, newObject]);
-    console.log(languageArray);
-  }
 
   function handleRemoveLanguage(itemId) {
     setLanguageArray(languageArray.filter((item) => item.id !== itemId));
@@ -207,10 +189,6 @@ function App() {
     },
   ]);
 
-  function handleSkillArrayChange(newObject) {
-    setSkillArray((prevSkillArray) => [...prevSkillArray, newObject]);
-  }
-
   function handleRemoveSkill(itemId) {
     setSkillArray(skillArray.filter((item) => item.id !== itemId));
   }
@@ -247,6 +225,10 @@ function App() {
     };
     reader.readAsDataURL(selectedFile);
   };
+
+  function handleArrayChange(array, setArray, newObject) {
+    setArray([...array, newObject]);
+  }
 
   function moveItemUp(array, setArray, id) {
     let position = array.findIndex((item) => item.id === id);
@@ -321,7 +303,7 @@ function App() {
             <EducationInfo
               educationArray={educationArray}
               setEducationArray={setEducationArray}
-              handleEducationArrayChange={handleEducationArrayChange}
+              handleArrayChange={handleArrayChange}
               handleMoveItemUp={moveItemUp}
               handleMoveItemDown={moveItemDown}
               handleRemoveEducationItem={handleRemoveEducationItem}
@@ -335,7 +317,7 @@ function App() {
             <WorkInfo
               workArray={workArray}
               setWorkArray={setWorkArray}
-              handleWorkArrayChange={handleWorkArrayChange}
+              handleArrayChange={handleArrayChange}
               handleMoveItemUp={moveItemUp}
               handleMoveItemDown={moveItemDown}
               handleRemoveWorkItem={handleRemoveWorkItem}
@@ -348,7 +330,8 @@ function App() {
             {" "}
             <LanguageInfo
               languageArray={languageArray}
-              handleLanguageArrayChange={handleLanguageArrayChange}
+              setLanguageArray={setLanguageArray}
+              handleArrayChange={handleArrayChange}
               handleRemoveLanguage={handleRemoveLanguage}
               handleEditLanguage={handleEditLanguage}
               handleSubmitLanguage={handleSubmitLanguage}
@@ -359,7 +342,8 @@ function App() {
             {" "}
             <SkillInfo
               skillArray={skillArray}
-              handleSkillArrayChange={handleSkillArrayChange}
+              setSkillArray={setSkillArray}
+              handleArrayChange={handleArrayChange}
               handleRemoveSkill={handleRemoveSkill}
               handleEditSkill={handleEditSkill}
               handleSubmitSkill={handleSubmitSkill}

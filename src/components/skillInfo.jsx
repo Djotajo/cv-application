@@ -5,17 +5,13 @@ import SkillEdit from "./skillEdit";
 
 function SkillInfo({
   skillArray,
-  handleSkillArrayChange,
+  setSkillArray,
+  handleArrayChange,
   handleRemoveSkill,
   handleEditSkill,
   handleSubmitSkill,
 }) {
   const [addNew, setAddNew] = useState(false);
-
-  function editArray(newObject) {
-    handleSkillArrayChange(newObject);
-    addItem();
-  }
 
   function addItem() {
     setAddNew(!addNew);
@@ -55,7 +51,10 @@ function SkillInfo({
         {addNew ? (
           <NewSkill
             skillArray={skillArray}
-            handleAdd={editArray}
+            setSkillArray={setSkillArray}
+            handleArrayChange={handleArrayChange}
+            addNew={addNew}
+            setAddNew={setAddNew}
             handleCancel={addItem}
           />
         ) : (

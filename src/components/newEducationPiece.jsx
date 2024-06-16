@@ -1,7 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-function NewEducationPiece({ educationArray, handleAdd, handleCancel }) {
+function NewEducationPiece({
+  educationArray,
+  setEducationArray,
+  handleArrayChange,
+  addNew,
+  setAddNew,
+  handleCancel,
+}) {
   const pieceId = uuidv4();
   const [name, setSchoolName] = useState("");
   const [titleEarned, setTitle] = useState("");
@@ -24,7 +31,7 @@ function NewEducationPiece({ educationArray, handleAdd, handleCancel }) {
     handleCancel();
   }
 
-  function handleSubmit(event) {
+  function addNewItem(event) {
     event.preventDefault();
 
     if (
@@ -35,13 +42,15 @@ function NewEducationPiece({ educationArray, handleAdd, handleCancel }) {
     ) {
       setErrorMessage("");
 
-      handleAdd({
+      const newItem = {
         id: pieceId,
         schoolName: name,
         title: titleEarned,
         start: startDate,
         end: endDate,
-      });
+      };
+      handleArrayChange(educationArray, setEducationArray, newItem);
+      setAddNew(!addNew);
     } else {
       setErrorMessage("Please fill in all required fields.");
     }
@@ -114,7 +123,7 @@ function NewEducationPiece({ educationArray, handleAdd, handleCancel }) {
             />
           </div>
 
-          <button onClick={handleSubmit}>Submit</button>
+          <button onClick={addNewItem}>Submit</button>
           <button onClick={handleCancelSubmit}>Cancel</button>
           {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         </fieldset>

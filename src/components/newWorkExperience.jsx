@@ -1,7 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
+function NewWorkExperience({
+  workArray,
+  setWorkArray,
+  handleArrayChange,
+  addNew,
+  setAddNew,
+  handleCancel,
+}) {
   const workId = uuidv4();
   const [companyName, setCompanyName] = useState("");
   const [city, setCity] = useState("");
@@ -27,7 +34,7 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
     handleCancel();
   }
 
-  function handleSubmit(event) {
+  function addNewItem(event) {
     event.preventDefault();
 
     if (
@@ -41,7 +48,7 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
     ) {
       setErrorMessage("");
 
-      handleAdd({
+      const newItem = {
         id: workId,
         companyName: companyName,
         city: city,
@@ -50,7 +57,9 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
         responsibilities: responsibilities,
         jobStartDate: jobStartDate,
         jobEndDate: jobEndDate,
-      });
+      };
+      handleArrayChange(workArray, setWorkArray, newItem);
+      setAddNew(!addNew);
     } else {
       setErrorMessage("Please fill in all required fields.");
     }
@@ -160,7 +169,7 @@ function NewWorkExperience({ workArray, handleAdd, handleCancel }) {
             />
           </div>
 
-          <button onClick={handleSubmit}>Submit</button>
+          <button onClick={addNewItem}>Submit</button>
           <button onClick={handleCancelSubmit}>Cancel</button>
           {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         </fieldset>

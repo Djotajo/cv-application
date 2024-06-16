@@ -5,23 +5,16 @@ import LanguageEdit from "./languageEdit";
 
 function LanguageInfo({
   languageArray,
-  handleLanguageArrayChange,
+  setLanguageArray,
+  handleArrayChange,
   handleRemoveLanguage,
   handleEditLanguage,
   handleSubmitLanguage,
 }) {
-  // const [educationArray, setEducationArray] = useState([]);
   const [addNew, setAddNew] = useState(false);
-
-  function editArray(newObject) {
-    handleLanguageArrayChange(newObject);
-    addItem();
-    console.log(languageArray);
-  }
 
   function addItem() {
     setAddNew(!addNew);
-    console.log(addNew);
   }
   let list = [];
 
@@ -59,7 +52,10 @@ function LanguageInfo({
         {addNew ? (
           <NewLanguage
             languageArray={languageArray}
-            handleAdd={editArray}
+            setLanguageArray={setLanguageArray}
+            handleArrayChange={handleArrayChange}
+            addNew={addNew}
+            setAddNew={setAddNew}
             handleCancel={addItem}
           />
         ) : (

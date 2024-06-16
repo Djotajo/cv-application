@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-function NewLanguage({ languageArray, handleAdd, handleCancel }) {
+function NewLanguage({
+  languageArray,
+  setLanguageArray,
+  handleArrayChange,
+  addNew,
+  setAddNew,
+  handleCancel,
+}) {
   const languageId = uuidv4();
   const [language, setLanguage] = useState("");
   const [level, setLevel] = useState("A1");
@@ -12,16 +19,19 @@ function NewLanguage({ languageArray, handleAdd, handleCancel }) {
     handleCancel();
   }
 
-  function handleSubmit(event) {
+  function addNewItem(event) {
     event.preventDefault();
 
     if (language.trim() !== "") {
       setErrorMessage("");
-      handleAdd({
+
+      const newItem = {
         id: languageId,
         language: language,
         level: level,
-      });
+      };
+      handleArrayChange(languageArray, setLanguageArray, newItem);
+      setAddNew(!addNew);
     } else {
       setErrorMessage("Please fill in all required fields.");
     }
@@ -130,7 +140,7 @@ function NewLanguage({ languageArray, handleAdd, handleCancel }) {
             </div>
           </fieldset>
 
-          <button onClick={handleSubmit}>Submit</button>
+          <button onClick={addNewItem}>Submit</button>
           <button onClick={handleCancelSubmit}>Cancel</button>
           {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         </fieldset>

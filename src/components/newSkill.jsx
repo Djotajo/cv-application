@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-function NewSkill({ skillArray, handleAdd, handleCancel }) {
+function NewSkill({
+  skillArray,
+  setSkillArray,
+  handleArrayChange,
+  addNew,
+  setAddNew,
+  handleCancel,
+}) {
   const skillId = uuidv4();
   const [skill, setSkill] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -11,14 +18,17 @@ function NewSkill({ skillArray, handleAdd, handleCancel }) {
     handleCancel();
   }
 
-  function handleSubmit(event) {
+  function addNewItem(event) {
     event.preventDefault();
+
     if (skill.trim() !== "") {
       setErrorMessage("");
-      handleAdd({
+      const newItem = {
         id: skillId,
         skill: skill,
-      });
+      };
+      handleArrayChange(skillArray, setSkillArray, newItem);
+      setAddNew(!addNew);
     } else {
       setErrorMessage("Please fill in all required fields.");
     }
@@ -42,7 +52,7 @@ function NewSkill({ skillArray, handleAdd, handleCancel }) {
               aria-required="true"
             />
           </div>
-          <button type="submit" onClick={handleSubmit}>
+          <button type="submit" onClick={addNewItem}>
             Submit
           </button>
           <button onClick={handleCancelSubmit}>Cancel</button>
