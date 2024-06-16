@@ -19,7 +19,9 @@ function DisplayContactInfo({ city, country, email, phone, page }) {
         <h4>{phone}</h4>
         <Icon path={mdiOpenInNew} size={1} />
         <h4>
-          <a href={page}>Web Page</a>
+          <a href={page} target="_blank">
+            Web Page
+          </a>
         </h4>
         <hr className="generalInfoLine print" />
       </section>
