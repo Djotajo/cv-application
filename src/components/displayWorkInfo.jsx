@@ -1,7 +1,4 @@
-import { useState } from "react";
 import DisplayWorkItem from "./displayWorkItem";
-
-import Icon from "@mdi/react";
 
 function DisplayWorkInfo({ array }) {
   const list = array.map((item) =>
@@ -16,8 +13,6 @@ function DisplayWorkInfo({ array }) {
         endDate={item.jobEndDate}
         key={item.id}
         id={item.id}
-        // handleEditItem={editItem}
-        // handleRemoveItem={removeItem}
       />
     )
   );

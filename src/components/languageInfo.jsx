@@ -7,7 +7,7 @@ function LanguageInfo({
   languageArray,
   setLanguageArray,
   handleArrayChange,
-  handleRemoveLanguage,
+  handleRemoveItem,
   handleEditLanguage,
   handleSubmitLanguage,
 }) {
@@ -34,8 +34,10 @@ function LanguageInfo({
           level={piece.level}
           key={piece.id}
           id={piece.id}
+          languageArray={languageArray}
+          setLanguageArray={setLanguageArray}
           handleEditItem={handleEditLanguage}
-          handleRemoveItem={handleRemoveLanguage}
+          handleRemoveItem={handleRemoveItem}
         />
       )
     );

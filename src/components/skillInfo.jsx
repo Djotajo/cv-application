@@ -7,7 +7,7 @@ function SkillInfo({
   skillArray,
   setSkillArray,
   handleArrayChange,
-  handleRemoveSkill,
+  handleRemoveItem,
   handleEditSkill,
   handleSubmitSkill,
 }) {
@@ -15,7 +15,6 @@ function SkillInfo({
 
   function addItem() {
     setAddNew(!addNew);
-    console.log(addNew);
   }
   let list = [];
 
@@ -33,8 +32,10 @@ function SkillInfo({
           skill={piece.skill}
           key={piece.id}
           id={piece.id}
+          skillArray={skillArray}
+          setSkillArray={setSkillArray}
           handleEditItem={handleEditSkill}
-          handleRemoveItem={handleRemoveSkill}
+          handleRemoveItem={handleRemoveItem}
         />
       )
     );

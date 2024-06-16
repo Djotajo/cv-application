@@ -33,7 +33,7 @@ function EducationPieceCompleted({
   function handleRemove(event) {
     event.preventDefault();
 
-    handleRemoveItem(id);
+    handleRemoveItem(educationArray, setEducationArray, id);
   }
 
   function handleEdit() {

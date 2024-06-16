@@ -9,7 +9,7 @@ function WorkInfo({
   handleArrayChange,
   handleMoveItemUp,
   handleMoveItemDown,
-  handleRemoveWorkItem,
+  handleRemoveItem,
   handleEditWorkItem,
   handleSubmitEditWorkItem,
 }) {
@@ -50,7 +50,7 @@ function WorkInfo({
           handleMoveItemUp={handleMoveItemUp}
           handleMoveItemDown={handleMoveItemDown}
           handleEditItem={handleEditWorkItem}
-          handleRemoveItem={handleRemoveWorkItem}
+          handleRemoveItem={handleRemoveItem}
         />
       )
     );

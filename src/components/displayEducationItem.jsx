@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function DisplayEducationItem({ name, title, startDate, endDate, id }) {
   const dateOptions = { month: "long", year: "numeric" };
 
@@ -15,7 +13,6 @@ function DisplayEducationItem({ name, title, startDate, endDate, id }) {
     const dateEnd = new Date(year, month - 1);
     formattedDateEnd = dateEnd.toLocaleDateString("en-GB", dateOptions);
   }
-  // const formattedDateEnd = dateEnd.toLocaleDateString("en-GB", dateOptions);
 
   return (
     <>
@@ -25,9 +22,6 @@ function DisplayEducationItem({ name, title, startDate, endDate, id }) {
         </p>
         <h3>{title}</h3>
         <p>{name}</p>
-
-        {/* <button onClick={handleEdit}>Edit</button>
-      <button onClick={handleRemove}>Remove</button> */}
       </li>
     </>
   );

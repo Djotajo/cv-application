@@ -1,12 +1,19 @@
 import { useState } from "react";
 
-function SkillCompleted({ skill, id, handleEditItem, handleRemoveItem }) {
+function SkillCompleted({
+  skill,
+  id,
+  skillArray,
+  setSkillArray,
+  handleEditItem,
+  handleRemoveItem,
+}) {
   const [edit, setEdit] = useState(false);
 
   function handleRemove(event) {
     event.preventDefault();
 
-    handleRemoveItem(id);
+    handleRemoveItem(skillArray, setSkillArray, id);
   }
 
   function handleEdit() {

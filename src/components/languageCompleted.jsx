@@ -4,6 +4,8 @@ function LanguageCompleted({
   language,
   level,
   id,
+  languageArray,
+  setLanguageArray,
   handleEditItem,
   handleRemoveItem,
 }) {
@@ -12,7 +14,7 @@ function LanguageCompleted({
   function handleRemove(event) {
     event.preventDefault();
 
-    handleRemoveItem(id);
+    handleRemoveItem(languageArray, setLanguageArray, id);
   }
 
   function handleEdit() {

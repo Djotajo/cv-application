@@ -57,10 +57,6 @@ function App() {
     setter(event.target.value);
   }
 
-  function handleRemoveEducationItem(itemId) {
-    setEducationArray(educationArray.filter((item) => item.id !== itemId));
-  }
-
   function handleEditEducationItem(itemId) {
     setEducationArray((prevEducationArray) =>
       prevEducationArray.map((item) =>
@@ -113,10 +109,6 @@ function App() {
     },
   ]);
 
-  function handleRemoveWorkItem(itemId) {
-    setWorkArray(workArray.filter((item) => item.id !== itemId));
-  }
-
   function handleEditWorkItem(itemId) {
     setWorkArray((prevWorkArray) =>
       prevWorkArray.map((item) =>
@@ -145,10 +137,6 @@ function App() {
       level: "A1",
     },
   ]);
-
-  function handleRemoveLanguage(itemId) {
-    setLanguageArray(languageArray.filter((item) => item.id !== itemId));
-  }
 
   function handleEditLanguage(itemId) {
     setLanguageArray((prevLanguageArray) =>
@@ -189,10 +177,6 @@ function App() {
     },
   ]);
 
-  function handleRemoveSkill(itemId) {
-    setSkillArray(skillArray.filter((item) => item.id !== itemId));
-  }
-
   function handleEditSkill(itemId) {
     setSkillArray((prevSkillArray) =>
       prevSkillArray.map((item) =>
@@ -228,6 +212,10 @@ function App() {
 
   function handleArrayChange(array, setArray, newObject) {
     setArray([...array, newObject]);
+  }
+
+  function handleRemoveItem(array, setArray, itemId) {
+    setArray(array.filter((item) => item.id !== itemId));
   }
 
   function moveItemUp(array, setArray, id) {
@@ -306,7 +294,7 @@ function App() {
               handleArrayChange={handleArrayChange}
               handleMoveItemUp={moveItemUp}
               handleMoveItemDown={moveItemDown}
-              handleRemoveEducationItem={handleRemoveEducationItem}
+              handleRemoveItem={handleRemoveItem}
               handleEditEducationItem={handleEditEducationItem}
               handleSubmitEditEducationItem={handleSubmitEditEducationItem}
             />
@@ -320,7 +308,7 @@ function App() {
               handleArrayChange={handleArrayChange}
               handleMoveItemUp={moveItemUp}
               handleMoveItemDown={moveItemDown}
-              handleRemoveWorkItem={handleRemoveWorkItem}
+              handleRemoveItem={handleRemoveItem}
               handleEditWorkItem={handleEditWorkItem}
               handleSubmitEditWorkItem={handleSubmitEditWorkItem}
             />
@@ -332,7 +320,7 @@ function App() {
               languageArray={languageArray}
               setLanguageArray={setLanguageArray}
               handleArrayChange={handleArrayChange}
-              handleRemoveLanguage={handleRemoveLanguage}
+              handleRemoveItem={handleRemoveItem}
               handleEditLanguage={handleEditLanguage}
               handleSubmitLanguage={handleSubmitLanguage}
             />
@@ -344,7 +332,7 @@ function App() {
               skillArray={skillArray}
               setSkillArray={setSkillArray}
               handleArrayChange={handleArrayChange}
-              handleRemoveSkill={handleRemoveSkill}
+              handleRemoveItem={handleRemoveItem}
               handleEditSkill={handleEditSkill}
               handleSubmitSkill={handleSubmitSkill}
             />

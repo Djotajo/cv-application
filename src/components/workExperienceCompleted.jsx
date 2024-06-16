@@ -34,12 +34,11 @@ function WorkExperienceCompleted({
   function handleRemove(event) {
     event.preventDefault();
 
-    handleRemoveItem(id);
+    handleRemoveItem(workArray, setWorkArray, id);
   }
 
   function handleEdit() {
     setEdit(true);
-    console.log(edit);
     handleEditItem(id);
   }
 

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import ResponsibilityItem from "./responsiblityItem";
 
@@ -26,10 +25,8 @@ function DisplayWorkItem({
     const dateEnd = new Date(year, month - 1);
     formattedDateEnd = dateEnd.toLocaleDateString("en-GB", dateOptions);
   }
-  // const formattedDateEnd = dateEnd.toLocaleDateString("en-GB", dateOptions);
 
   const responsibilitiesList = responsibilities.split("\n");
-  console.log(responsibilitiesList);
 
   const list = responsibilitiesList.map((item) => (
     <ResponsibilityItem item={item} key={uuidv4()} />

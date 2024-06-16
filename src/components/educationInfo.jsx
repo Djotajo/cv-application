@@ -9,7 +9,7 @@ function EducationInfo({
   handleArrayChange,
   handleMoveItemUp,
   handleMoveItemDown,
-  handleRemoveEducationItem,
+  handleRemoveItem,
   handleEditEducationItem,
   handleSubmitEditEducationItem,
 }) {
@@ -45,7 +45,7 @@ function EducationInfo({
           handleMoveItemUp={handleMoveItemUp}
           handleMoveItemDown={handleMoveItemDown}
           handleEditItem={handleEditEducationItem}
-          handleRemoveItem={handleRemoveEducationItem}
+          handleRemoveItem={handleRemoveItem}
         />
       )
     );
