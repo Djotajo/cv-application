@@ -10,7 +10,7 @@ function EducationInfo({
   handleMoveItemUp,
   handleMoveItemDown,
   handleRemoveItem,
-  handleEditEducationItem,
+  handleEditItem,
   handleSubmitEditEducationItem,
 }) {
   const [addNew, setAddNew] = useState(false);
@@ -36,15 +36,13 @@ function EducationInfo({
         <EducationPieceCompleted
           name={piece.schoolName}
           title={piece.title}
-          startDate={piece.start}
-          endDate={piece.end}
           key={piece.id}
           id={piece.id}
           educationArray={educationArray}
           setEducationArray={setEducationArray}
           handleMoveItemUp={handleMoveItemUp}
           handleMoveItemDown={handleMoveItemDown}
-          handleEditItem={handleEditEducationItem}
+          handleEditItem={handleEditItem}
           handleRemoveItem={handleRemoveItem}
         />
       )

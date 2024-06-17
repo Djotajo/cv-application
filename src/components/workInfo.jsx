@@ -10,7 +10,7 @@ function WorkInfo({
   handleMoveItemUp,
   handleMoveItemDown,
   handleRemoveItem,
-  handleEditWorkItem,
+  handleEditItem,
   handleSubmitEditWorkItem,
 }) {
   const [addNew, setAddNew] = useState(false);
@@ -40,16 +40,13 @@ function WorkInfo({
         <WorkExperienceCompleted
           company={piece.companyName}
           position={piece.jobPosition}
-          responsibilities={piece.responsibilities}
-          startDate={piece.jobStartDate}
-          endDate={piece.jobEndDate}
           key={piece.id}
           id={piece.id}
           workArray={workArray}
           setWorkArray={setWorkArray}
           handleMoveItemUp={handleMoveItemUp}
           handleMoveItemDown={handleMoveItemDown}
-          handleEditItem={handleEditWorkItem}
+          handleEditItem={handleEditItem}
           handleRemoveItem={handleRemoveItem}
         />
       )

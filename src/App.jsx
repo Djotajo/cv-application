@@ -218,6 +218,12 @@ function App() {
     setArray(array.filter((item) => item.id !== itemId));
   }
 
+  function handleEditItem(array, setArray, itemId) {
+    setArray(
+      array.map((item) => (item.id === itemId ? { ...item, edit: true } : item))
+    );
+  }
+
   function moveItemUp(array, setArray, id) {
     let position = array.findIndex((item) => item.id === id);
     if (position !== 0 && position !== -1) {
@@ -295,7 +301,7 @@ function App() {
               handleMoveItemUp={moveItemUp}
               handleMoveItemDown={moveItemDown}
               handleRemoveItem={handleRemoveItem}
-              handleEditEducationItem={handleEditEducationItem}
+              handleEditItem={handleEditItem}
               handleSubmitEditEducationItem={handleSubmitEditEducationItem}
             />
           </section>
@@ -309,7 +315,7 @@ function App() {
               handleMoveItemUp={moveItemUp}
               handleMoveItemDown={moveItemDown}
               handleRemoveItem={handleRemoveItem}
-              handleEditWorkItem={handleEditWorkItem}
+              handleEditItem={handleEditItem}
               handleSubmitEditWorkItem={handleSubmitEditWorkItem}
             />
           </section>
@@ -321,7 +327,7 @@ function App() {
               setLanguageArray={setLanguageArray}
               handleArrayChange={handleArrayChange}
               handleRemoveItem={handleRemoveItem}
-              handleEditLanguage={handleEditLanguage}
+              handleEditItem={handleEditItem}
               handleSubmitLanguage={handleSubmitLanguage}
             />
           </section>
@@ -333,7 +339,7 @@ function App() {
               setSkillArray={setSkillArray}
               handleArrayChange={handleArrayChange}
               handleRemoveItem={handleRemoveItem}
-              handleEditSkill={handleEditSkill}
+              handleEditItem={handleEditItem}
               handleSubmitSkill={handleSubmitSkill}
             />
           </section>

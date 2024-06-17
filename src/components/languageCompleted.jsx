@@ -19,8 +19,7 @@ function LanguageCompleted({
 
   function handleEdit() {
     setEdit(true);
-    console.log(edit);
-    handleEditItem(id);
+    handleEditItem(languageArray, setLanguageArray, id);
   }
 
   return (

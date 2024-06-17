@@ -6,9 +6,6 @@ import { mdiArrowUpBold } from "@mdi/js";
 function WorkExperienceCompleted({
   company,
   position,
-  responsibilities,
-  startDate,
-  endDate,
   id,
   workArray,
   setWorkArray,
@@ -39,7 +36,7 @@ function WorkExperienceCompleted({
 
   function handleEdit() {
     setEdit(true);
-    handleEditItem(id);
+    handleEditItem(workArray, setWorkArray, id);
   }
 
   return (

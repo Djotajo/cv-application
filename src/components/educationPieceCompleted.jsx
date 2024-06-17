@@ -6,8 +6,6 @@ import { mdiArrowUpBold } from "@mdi/js";
 function EducationPieceCompleted({
   name,
   title,
-  startDate,
-  endDate,
   id,
   educationArray,
   setEducationArray,
@@ -38,8 +36,7 @@ function EducationPieceCompleted({
 
   function handleEdit() {
     setEdit(true);
-    console.log(edit);
-    handleEditItem(id);
+    handleEditItem(educationArray, setEducationArray, id);
   }
 
   return (

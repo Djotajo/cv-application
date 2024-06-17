@@ -8,7 +8,7 @@ function LanguageInfo({
   setLanguageArray,
   handleArrayChange,
   handleRemoveItem,
-  handleEditLanguage,
+  handleEditItem,
   handleSubmitLanguage,
 }) {
   const [addNew, setAddNew] = useState(false);
@@ -36,7 +36,7 @@ function LanguageInfo({
           id={piece.id}
           languageArray={languageArray}
           setLanguageArray={setLanguageArray}
-          handleEditItem={handleEditLanguage}
+          handleEditItem={handleEditItem}
           handleRemoveItem={handleRemoveItem}
         />
       )

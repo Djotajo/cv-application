@@ -18,8 +18,7 @@ function SkillCompleted({
 
   function handleEdit() {
     setEdit(true);
-    console.log(edit);
-    handleEditItem(id);
+    handleEditItem(skillArray, setSkillArray, id);
   }
 
   return (
