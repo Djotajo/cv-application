@@ -94,11 +94,14 @@ textarea {
   width: 100%;
   max-width: 50%;
   background-color: white;
+  flex: 1;
 }
 
 .left {
   width: 40%;
   max-width: 40%;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .right {
