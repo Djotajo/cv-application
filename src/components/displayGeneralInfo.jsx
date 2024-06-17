@@ -2,10 +2,6 @@ import "./displayGeneralInfo.css";
 import ImageDisplay from "./imageDisplay";
 
 function DisplayGeneralInfo({ firstName, lastName, title, profileImg }) {
-  function printCV() {
-    window.print();
-  }
-
   return (
     <>
       <section className="displayGeneralInfo">

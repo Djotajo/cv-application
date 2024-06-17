@@ -2,9 +2,9 @@ function DisplayLanguage({ language, level, id }) {
   return (
     <>
       <li className="itemDisplay">
-        <h3>
+        <p>
           {language} - {level}
-        </h3>
+        </p>
       </li>
     </>
   );

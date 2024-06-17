@@ -137,7 +137,6 @@ function GeneralInfo({
 
         <div>
           <span className="gridItemText">First name</span>
-          {/* <span className="gridItemInput">{firstName}</span> */}
         </div>
 
         <div>

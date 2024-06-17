@@ -128,11 +128,11 @@ function LanguageEdit({
                 type="radio"
                 id="native"
                 name="languageLevel"
-                value="Native language"
+                value="Native"
                 onChange={(e) => setLevel(e.target.value)}
-                defaultChecked={languageLevel === "Native language"}
+                defaultChecked={languageLevel === "Native"}
               />
-              <label htmlFor="native">Native language</label>
+              <label htmlFor="native">Native</label>
             </div>
           </fieldset>
 

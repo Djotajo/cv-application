@@ -133,10 +133,10 @@ function NewLanguage({
                 type="radio"
                 id="native"
                 name="languageLevel"
-                value="Native language"
+                value="Native"
                 onChange={(e) => setLevel(e.target.value)}
               />
-              <label htmlFor="native">Native language</label>
+              <label htmlFor="native">Native</label>
             </div>
           </fieldset>
 

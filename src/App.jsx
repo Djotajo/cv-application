@@ -53,10 +53,6 @@ function App() {
     },
   ]);
 
-  function handleInputChange(event, setter) {
-    setter(event.target.value);
-  }
-
   const [workArray, setWorkArray] = useState([
     {
       id: "e4396060-68f7-482c-b5de-ad5df55e1e6b",
@@ -97,7 +93,7 @@ function App() {
     {
       id: "06b95b8s-fe78-4752-9913-f35644881863",
       language: "Japanese",
-      level: "Native language",
+      level: "Native",
     },
     {
       id: "06b95b8s-fe78-4752-9913-f35644881865",
@@ -129,22 +125,9 @@ function App() {
     },
   ]);
 
-  function printCV() {
-    window.print();
+  function handleInputChange(event, setter) {
+    setter(event.target.value);
   }
-
-  const [file, setFile] = useState(null);
-  const [backgroundUrl, setBackgroundUrl] = useState("");
-
-  const handleFileChange = (selectedFile) => {
-    setFile(selectedFile);
-
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      setBackgroundUrl(e.target.result);
-    };
-    reader.readAsDataURL(selectedFile);
-  };
 
   function handleArrayChange(array, setArray, newItem) {
     setArray([...array, newItem]);
@@ -187,6 +170,23 @@ function App() {
       setArray(newArray);
     }
   }
+
+  function printCV() {
+    window.print();
+  }
+
+  const [file, setFile] = useState(null);
+  const [backgroundUrl, setBackgroundUrl] = useState("");
+
+  const handleFileChange = (selectedFile) => {
+    setFile(selectedFile);
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      setBackgroundUrl(e.target.result);
+    };
+    reader.readAsDataURL(selectedFile);
+  };
 
   return (
     <>

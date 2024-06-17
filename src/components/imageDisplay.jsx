@@ -17,7 +17,6 @@ function ImageDisplay({ backgroundUrl }) {
           className="profilePicture"
         />
       )}
-      {/* Other content */}
     </div>
   );
 }

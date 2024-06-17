@@ -52,12 +52,14 @@ function EducationPieceCompleted({
               size={1}
               onClick={(event) => moveUp(event, id)}
               className="moveItemIcon"
+              aria-label="move item up"
             />
             <Icon
               path={mdiArrowDownBold}
               size={1}
               onClick={(event) => moveDown(event, id)}
               className="moveItemIcon"
+              aria-label="move item down"
             />
           </div>
         </div>
