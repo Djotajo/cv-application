@@ -57,14 +57,6 @@ function App() {
     setter(event.target.value);
   }
 
-  function handleEditEducationItem(itemId) {
-    setEducationArray((prevEducationArray) =>
-      prevEducationArray.map((item) =>
-        item.id === itemId ? { ...item, edit: true } : item
-      )
-    );
-  }
-
   function handleSubmitEditEducationItem(itemId, updatedItem) {
     setEducationArray((prevEducationArray) =>
       prevEducationArray.map((item) =>
@@ -109,14 +101,6 @@ function App() {
     },
   ]);
 
-  function handleEditWorkItem(itemId) {
-    setWorkArray((prevWorkArray) =>
-      prevWorkArray.map((item) =>
-        item.id === itemId ? { ...item, edit: true } : item
-      )
-    );
-  }
-
   function handleSubmitEditWorkItem(itemId, updatedItem) {
     setWorkArray((prevWorkArray) =>
       prevWorkArray.map((item) =>
@@ -137,14 +121,6 @@ function App() {
       level: "A1",
     },
   ]);
-
-  function handleEditLanguage(itemId) {
-    setLanguageArray((prevLanguageArray) =>
-      prevLanguageArray.map((item) =>
-        item.id === itemId ? { ...item, edit: true } : item
-      )
-    );
-  }
 
   function handleSubmitLanguage(itemId, updatedItem) {
     setLanguageArray((prevLanguageArray) =>
@@ -176,14 +152,6 @@ function App() {
       skill: "Conflict Resolution",
     },
   ]);
-
-  function handleEditSkill(itemId) {
-    setSkillArray((prevSkillArray) =>
-      prevSkillArray.map((item) =>
-        item.id === itemId ? { ...item, edit: true } : item
-      )
-    );
-  }
 
   function handleSubmitSkill(itemId, updatedItem) {
     setSkillArray((prevSkillArray) =>
