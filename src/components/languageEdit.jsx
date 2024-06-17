@@ -1,6 +1,13 @@
 import { useState } from "react";
 
-function LanguageEdit({ language, level, id, handleEditItem }) {
+function LanguageEdit({
+  language,
+  level,
+  id,
+  languageArray,
+  setLanguageArray,
+  handleSubmitEditedItem,
+}) {
   const [languageName, setLanguage] = useState(language);
   const [languageLevel, setLevel] = useState(level);
   const [errorMessage, setErrorMessage] = useState("");
@@ -9,13 +16,13 @@ function LanguageEdit({ language, level, id, handleEditItem }) {
     event.preventDefault();
 
     if (languageName.trim() !== "") {
-      const updatedItem = {
+      const editedItem = {
         id: id,
         language: languageName,
         level: languageLevel,
         edit: false,
       };
-      handleEditItem(id, updatedItem);
+      handleSubmitEditedItem(languageArray, setLanguageArray, id, editedItem);
     } else {
       setErrorMessage("Please fill in all required fields.");
     }

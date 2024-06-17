@@ -9,7 +9,7 @@ function SkillInfo({
   handleArrayChange,
   handleRemoveItem,
   handleEditItem,
-  handleSubmitSkill,
+  handleSubmitEditedItem,
 }) {
   const [addNew, setAddNew] = useState(false);
 
@@ -24,7 +24,9 @@ function SkillInfo({
         <SkillEdit
           skill={piece.skill}
           id={piece.id}
-          handleEditItem={handleSubmitSkill}
+          skillArray={skillArray}
+          setSkillArray={setSkillArray}
+          handleSubmitEditedItem={handleSubmitEditedItem}
           key={piece.id}
         />
       ) : (

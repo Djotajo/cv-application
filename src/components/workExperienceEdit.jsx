@@ -9,7 +9,9 @@ function WorkExperienceEdit({
   startDate,
   endDate,
   id,
-  handleEditItem,
+  workArray,
+  setWorkArray,
+  handleSubmitEditedItem,
 }) {
   const [companyName, setCompanyName] = useState(company);
   const [cityName, setCity] = useState(city);
@@ -44,7 +46,7 @@ function WorkExperienceEdit({
       jobEndDate.trim() !== ""
     ) {
       setErrorMessage("");
-      const updatedItem = {
+      const editedItem = {
         id: id,
         companyName: companyName,
         cityName: cityName,
@@ -55,7 +57,7 @@ function WorkExperienceEdit({
         jobEndDate: jobEndDate,
         edit: false,
       };
-      handleEditItem(id, updatedItem);
+      handleSubmitEditedItem(workArray, setWorkArray, id, editedItem);
     } else {
       setErrorMessage("Please fill in all required fields.");
     }

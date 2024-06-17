@@ -57,14 +57,6 @@ function App() {
     setter(event.target.value);
   }
 
-  function handleSubmitEditEducationItem(itemId, updatedItem) {
-    setEducationArray((prevEducationArray) =>
-      prevEducationArray.map((item) =>
-        item.id === itemId ? { ...item, ...updatedItem } : item
-      )
-    );
-  }
-
   const [workArray, setWorkArray] = useState([
     {
       id: "e4396060-68f7-482c-b5de-ad5df55e1e6b",
@@ -101,14 +93,6 @@ function App() {
     },
   ]);
 
-  function handleSubmitEditWorkItem(itemId, updatedItem) {
-    setWorkArray((prevWorkArray) =>
-      prevWorkArray.map((item) =>
-        item.id === itemId ? { ...item, ...updatedItem } : item
-      )
-    );
-  }
-
   const [languageArray, setLanguageArray] = useState([
     {
       id: "06b95b8s-fe78-4752-9913-f35644881863",
@@ -121,14 +105,6 @@ function App() {
       level: "A1",
     },
   ]);
-
-  function handleSubmitLanguage(itemId, updatedItem) {
-    setLanguageArray((prevLanguageArray) =>
-      prevLanguageArray.map((item) =>
-        item.id === itemId ? { ...item, ...updatedItem } : item
-      )
-    );
-  }
 
   const [skillArray, setSkillArray] = useState([
     {
@@ -153,14 +129,6 @@ function App() {
     },
   ]);
 
-  function handleSubmitSkill(itemId, updatedItem) {
-    setSkillArray((prevSkillArray) =>
-      prevSkillArray.map((item) =>
-        item.id === itemId ? { ...item, ...updatedItem } : item
-      )
-    );
-  }
-
   function printCV() {
     window.print();
   }
@@ -178,8 +146,8 @@ function App() {
     reader.readAsDataURL(selectedFile);
   };
 
-  function handleArrayChange(array, setArray, newObject) {
-    setArray([...array, newObject]);
+  function handleArrayChange(array, setArray, newItem) {
+    setArray([...array, newItem]);
   }
 
   function handleRemoveItem(array, setArray, itemId) {
@@ -189,6 +157,14 @@ function App() {
   function handleEditItem(array, setArray, itemId) {
     setArray(
       array.map((item) => (item.id === itemId ? { ...item, edit: true } : item))
+    );
+  }
+
+  function handleSubmitEditedItem(array, setArray, itemId, editedItem) {
+    setArray(
+      array.map((item) =>
+        item.id === itemId ? { ...item, ...editedItem } : item
+      )
     );
   }
 
@@ -226,7 +202,6 @@ function App() {
             {" "}
             <div className="">
               <label htmlFor="addProfilePicture" className="file-input-label">
-                {/* <Icon path={mdiPlusCircleOutline} size={1} />{" "} */}
                 <p>Upload your profile picture</p>
               </label>
               <div id="profilePicInputWrap">
@@ -270,7 +245,7 @@ function App() {
               handleMoveItemDown={moveItemDown}
               handleRemoveItem={handleRemoveItem}
               handleEditItem={handleEditItem}
-              handleSubmitEditEducationItem={handleSubmitEditEducationItem}
+              handleSubmitEditedItem={handleSubmitEditedItem}
             />
           </section>
 
@@ -284,7 +259,7 @@ function App() {
               handleMoveItemDown={moveItemDown}
               handleRemoveItem={handleRemoveItem}
               handleEditItem={handleEditItem}
-              handleSubmitEditWorkItem={handleSubmitEditWorkItem}
+              handleSubmitEditedItem={handleSubmitEditedItem}
             />
           </section>
 
@@ -296,7 +271,7 @@ function App() {
               handleArrayChange={handleArrayChange}
               handleRemoveItem={handleRemoveItem}
               handleEditItem={handleEditItem}
-              handleSubmitLanguage={handleSubmitLanguage}
+              handleSubmitEditedItem={handleSubmitEditedItem}
             />
           </section>
 
@@ -308,7 +283,7 @@ function App() {
               handleArrayChange={handleArrayChange}
               handleRemoveItem={handleRemoveItem}
               handleEditItem={handleEditItem}
-              handleSubmitSkill={handleSubmitSkill}
+              handleSubmitEditedItem={handleSubmitEditedItem}
             />
           </section>
         </div>

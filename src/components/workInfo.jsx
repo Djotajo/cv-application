@@ -11,7 +11,7 @@ function WorkInfo({
   handleMoveItemDown,
   handleRemoveItem,
   handleEditItem,
-  handleSubmitEditWorkItem,
+  handleSubmitEditedItem,
 }) {
   const [addNew, setAddNew] = useState(false);
 
@@ -34,7 +34,9 @@ function WorkInfo({
           endDate={piece.jobEndDate}
           key={piece.id}
           id={piece.id}
-          handleEditItem={handleSubmitEditWorkItem}
+          workArray={workArray}
+          setWorkArray={setWorkArray}
+          handleSubmitEditedItem={handleSubmitEditedItem}
         />
       ) : (
         <WorkExperienceCompleted

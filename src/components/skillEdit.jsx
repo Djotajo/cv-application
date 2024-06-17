@@ -1,6 +1,12 @@
 import { useState } from "react";
 
-function SkillEdit({ skill, id, handleEditItem }) {
+function SkillEdit({
+  skill,
+  id,
+  skillArray,
+  setSkillArray,
+  handleSubmitEditedItem,
+}) {
   const [skillName, setSkill] = useState(skill);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -9,12 +15,12 @@ function SkillEdit({ skill, id, handleEditItem }) {
 
     if (skillName.trim() !== "") {
       setErrorMessage("");
-      const updatedItem = {
+      const editedItem = {
         id: id,
         skill: skillName,
         edit: false,
       };
-      handleEditItem(id, updatedItem);
+      handleSubmitEditedItem(skillArray, setSkillArray, id, editedItem);
     } else {
       setErrorMessage("Please fill in all required fields.");
     }

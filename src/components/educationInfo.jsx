@@ -11,7 +11,7 @@ function EducationInfo({
   handleMoveItemDown,
   handleRemoveItem,
   handleEditItem,
-  handleSubmitEditEducationItem,
+  handleSubmitEditedItem,
 }) {
   const [addNew, setAddNew] = useState(false);
 
@@ -29,7 +29,9 @@ function EducationInfo({
           startDate={piece.start}
           endDate={piece.end}
           id={piece.id}
-          handleEditItem={handleSubmitEditEducationItem}
+          educationArray={educationArray}
+          setEducationArray={setEducationArray}
+          handleSubmitEditedItem={handleSubmitEditedItem}
           key={piece.id}
         />
       ) : (

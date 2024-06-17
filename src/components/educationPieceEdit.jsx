@@ -6,7 +6,9 @@ function EducationPieceEdit({
   startDate,
   endDate,
   id,
-  handleEditItem,
+  educationArray,
+  setEducationArray,
+  handleSubmitEditedItem,
 }) {
   const [schoolName, setSchoolName] = useState(name);
   const [titleEarned, setTitle] = useState(title);
@@ -35,7 +37,7 @@ function EducationPieceEdit({
     ) {
       setErrorMessage("");
 
-      const updatedItem = {
+      const editedItem = {
         id: id,
         schoolName: schoolName,
         title: titleEarned,
@@ -43,7 +45,7 @@ function EducationPieceEdit({
         end: end,
         edit: false,
       };
-      handleEditItem(id, updatedItem);
+      handleSubmitEditedItem(educationArray, setEducationArray, id, editedItem);
     } else {
       setErrorMessage("Please fill in all required fields.");
     }
