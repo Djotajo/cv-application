@@ -172,6 +172,10 @@ textarea {
   background-color: white;
 }
 
+ul ul {
+  list-style-type: disc;
+}
+
 .row {
   display: flex;
   flex-direction: row;
@@ -469,6 +473,55 @@ form button:hover,
 
 .itemParagraph {
   padding-bottom: 1em;
+}
+
+@media (max-width: 800px) {
+  .right {
+    flex-direction: column;
+  }
+
+  .displayEducationInfo li {
+    text-align: center;
+  }
+
+  .displayEducationInfo ul {
+    list-style-type: none;
+  }
+
+  .displayGeneralInfo h1 {
+    font-size: calc(1em + 3vmin);
+  }
+
+  .displayGeneralInfo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .generalInfoMain {
+    text-align: center;
+  }
+
+  .mainContent {
+    display: flex;
+  }
+
+  ul {
+    margin-left: 0;
+    margin-block-start: 0em;
+    padding-left: 0;
+  }
+
+  ul ul {
+    list-style-type: disc;
+  }
+
+  .eduItemButtons button {
+    width: 40%;
+  }
+
+  .inputSection > fieldset > button {
+    width: 60%;
+  }
 }
 
 @media (max-width: 1000px) {
